@@ -11,6 +11,8 @@
 @change_time:
 1.2017/3/13 21:55
 """
+import numpy as np
 
-if __name__ == '__main__':
-    pass
+
+def sigmoid(x, w):
+    return 1 / (1 + np.exp(np.dot(-w.T, x)))
