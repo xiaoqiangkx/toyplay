@@ -6,17 +6,11 @@
 """
 @version: 1.0
 @author: xiaoqiangkx
-@file: logistic.py
-@time: 2017/3/12 23:47
+@file: formula.py
+@time: 2017/3/13 21:55
 @change_time:
-1.2017/3/12 23:47
+1.2017/3/13 21:55
 """
 
-
-def load_data():
-
-    return
-
-
 if __name__ == '__main__':
-    filename = ""
+    pass
