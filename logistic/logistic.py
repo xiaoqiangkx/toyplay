@@ -72,11 +72,11 @@ class LogisticRegression(object):
         y = formula.sigmoid(X, self.w)
         delta_w_1 = - np.dot(X, (Y - y).T)
 
-        # delta_w_2 = np.zeros((self.size[0], self.size[0]))
-        # for i in xrange(X.shape[1]):
-        #     delta_w_2 += (np.dot(X[:, i:i+1], X[:, i:i+1].T) * np.dot(y, (1 - y).T)).astype(float)
-        # return np.dot(np.linalg.inv(delta_w_2), delta_w_1)
-        return self.alpha * delta_w_1
+        delta_w_2 = np.zeros((self.size[0], self.size[0]))
+        for i in xrange(X.shape[1]):
+            delta_w_2 += (np.dot(X[:, i:i+1], X[:, i:i+1].T) * np.dot(y, (1 - y).T)).astype(float)
+        return np.dot(np.linalg.inv(delta_w_2), delta_w_1)
+        # return self.alpha * delta_w_1
 
     def cal_loss(self, X, Y):
         loss = 0
