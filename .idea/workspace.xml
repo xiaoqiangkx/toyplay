@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d46c789a-3f1f-49eb-8da0-a3620801f708" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logistic/logistic.py" afterPath="$PROJECT_DIR$/logistic/logistic.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/algorithm/DecisionTree.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/algorithm/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testes/decision_tree_test.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tree/DecisionTreeClassifier.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tree/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/formula.py" afterPath="$PROJECT_DIR$/utils/formula.py" />
     </list>
     <ignored path="toyplay.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -22,32 +28,52 @@
     <favorites_list name="toyplay" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="sample_testes.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/example/sample_testes.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
-              <folding>
-                <element signature="e#188#236#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="logistic.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/logistic/logistic.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-              <folding>
-                <element signature="e#183#201#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.547504">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="decision_tree_test.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/testes/decision_tree_test.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="326">
+                  <caret line="47" column="31" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
+                  <folding>
+                    <element signature="e#147#194#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="formula.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/utils/formula.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="274">
+                  <caret line="57" column="19" selection-start-line="57" selection-start-column="19" selection-end-line="57" selection-end-column="19" />
+                  <folding>
+                    <element signature="e#182#200#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="DecisionTree.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/algorithm/DecisionTree.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="282">
+                  <caret line="99" column="11" selection-start-line="99" selection-start-column="8" selection-end-line="99" selection-end-column="11" />
+                  <folding>
+                    <element signature="e#179#203#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -68,18 +94,22 @@
         <option value="$PROJECT_DIR$/testes/sample_testes.py" />
         <option value="$PROJECT_DIR$/utils/sample.py" />
         <option value="$PROJECT_DIR$/preproccessing/StandardScaler.py" />
-        <option value="$PROJECT_DIR$/utils/formula.py" />
         <option value="$PROJECT_DIR$/utils/logger.py" />
         <option value="$PROJECT_DIR$/example/sample_testes.py" />
         <option value="$PROJECT_DIR$/utils/file_utils.py" />
         <option value="$PROJECT_DIR$/logistic/logistic.py" />
+        <option value="$PROJECT_DIR$/tree/DecisionTree.py" />
+        <option value="$PROJECT_DIR$/tree/DecisionTreeClassifier.py" />
+        <option value="$PROJECT_DIR$/utils/formula.py" />
+        <option value="$PROJECT_DIR$/algorithm/DecisionTree.py" />
+        <option value="$PROJECT_DIR$/testes/decision_tree_test.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="803" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -148,6 +178,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="tree" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="toyplay" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="toyplay" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="testes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -176,21 +220,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="example" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="toyplay" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="toyplay" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
+              <option name="myItemId" value="algorithm" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -202,6 +232,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -212,24 +244,7 @@
       <recent name="$PROJECT_DIR$/data" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.sample_testes">
-    <configuration default="false" name="logistic" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/logistic" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="toyplay" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/logistic/logistic.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.decision_tree_test">
     <configuration default="false" name="file_utils" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -294,6 +309,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="toyplay" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/preproccessing/StandardScaler.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="decision_tree_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testes" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="toyplay" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testes/decision_tree_test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -433,24 +465,27 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.logistic" />
-      <item index="1" class="java.lang.String" itemvalue="Python.file_utils" />
-      <item index="2" class="java.lang.String" itemvalue="Python.sample_testes" />
-      <item index="3" class="java.lang.String" itemvalue="Python.sample" />
-      <item index="4" class="java.lang.String" itemvalue="Python.StandardScaler" />
+      <item index="0" class="java.lang.String" itemvalue="Python.file_utils" />
+      <item index="1" class="java.lang.String" itemvalue="Python.sample_testes" />
+      <item index="2" class="java.lang.String" itemvalue="Python.sample" />
+      <item index="3" class="java.lang.String" itemvalue="Python.StandardScaler" />
+      <item index="4" class="java.lang.String" itemvalue="Python.decision_tree_test" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.sample_testes" />
-        <item index="1" class="java.lang.String" itemvalue="Python.StandardScaler" />
-        <item index="2" class="java.lang.String" itemvalue="Python.file_utils" />
-        <item index="3" class="java.lang.String" itemvalue="Python.sample" />
-        <item index="4" class="java.lang.String" itemvalue="Python.logistic" />
+        <item index="0" class="java.lang.String" itemvalue="Python.decision_tree_test" />
+        <item index="1" class="java.lang.String" itemvalue="Python.sample_testes" />
+        <item index="2" class="java.lang.String" itemvalue="Python.StandardScaler" />
+        <item index="3" class="java.lang.String" itemvalue="Python.file_utils" />
+        <item index="4" class="java.lang.String" itemvalue="Python.sample" />
       </list>
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -474,16 +509,16 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="803" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="800" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18040873" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12473573" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3270073" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3708029" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19648094" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -496,12 +531,20 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -561,7 +604,7 @@
         <state relative-caret-position="165">
           <caret line="29" column="37" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
           <folding>
-            <element signature="e#189#207#0" expanded="true" />
+            <element signature="e#189#207#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -571,16 +614,6 @@
         <state relative-caret-position="216">
           <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/formula.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="29" column="86" selection-start-line="29" selection-start-column="86" selection-end-line="29" selection-end-column="86" />
-          <folding>
-            <element signature="e#182#200#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -597,7 +630,7 @@
         <state relative-caret-position="212">
           <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
           <folding>
-            <element signature="e#186#205#0" expanded="true" />
+            <element signature="e#186#205#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -607,17 +640,7 @@
         <state relative-caret-position="8">
           <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
           <folding>
-            <element signature="e#181#194#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logistic/logistic.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-          <folding>
-            <element signature="e#183#201#0" expanded="true" />
+            <element signature="e#181#194#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -628,6 +651,62 @@
           <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
           <folding>
             <element signature="e#188#236#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logistic/logistic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1139">
+          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <folding>
+            <element signature="e#183#201#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tree/DecisionTreeClassifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2016.1/python_stubs/120269359/operator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/formula.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="57" column="19" selection-start-line="57" selection-start-column="19" selection-end-line="57" selection-end-column="19" />
+          <folding>
+            <element signature="e#182#200#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/algorithm/DecisionTree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="99" column="11" selection-start-line="99" selection-start-column="8" selection-end-line="99" selection-end-column="11" />
+          <folding>
+            <element signature="e#179#203#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testes/decision_tree_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="47" column="31" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
+          <folding>
+            <element signature="e#147#194#0" expanded="true" />
           </folding>
         </state>
       </provider>

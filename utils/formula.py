@@ -13,6 +13,7 @@
 """
 import numpy as np
 from utils import logger as LOGGER
+import operator
 
 
 def sigmoid(x, w):
@@ -35,3 +36,38 @@ def plus_one(X):
     m, n = X.shape
     X = np.row_stack((X, np.ones(n)))
     return X
+
+
+# 仿照STL封装一些常用的operator方法,方便以后扩展 #
+class MyOerator(object):
+    def __init__(self):
+        pass
+
+class lte(MyOerator):
+    def __init__(self, a):
+        super(lte, self).__init__()
+        self.a = a
+        return
+
+    def __call__(self, *args, **kwargs):
+        arg_list = list(args)
+        arg_list.append(self.a)
+        return operator.le(*args, **kwargs)
+
+    def __repr__(self):
+        return "lte({0})".format(self.a)
+
+
+class equal(MyOerator):
+    def __init__(self, a):
+        super(equal, self).__init__()
+        self.a = a
+        return
+
+    def __call__(self, *args, **kwargs):
+        arg_list = list(args)
+        arg_list.append(self.a)
+        return operator.eq(*args, **kwargs)
+
+    def __repr__(self):
+        return "equal({0})".format(self.a)
