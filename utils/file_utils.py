@@ -23,6 +23,7 @@ def load_water_melon_data(filename, header='infer'):
     Y = df.values[:, n-1:n]
     return X.T, Y.T
 
+
 def load_iris_data(filename, header='infer'):
     df = pd.read_csv(filename, header=header)
     m, n = df.shape
@@ -35,6 +36,21 @@ def load_iris_data(filename, header='infer'):
         elif Y[i, 0] == 'Iris-virginica':
             Y[i, 0] = 0
     return X.T, Y.T
+
+
+def load_mnist_data(train_filename, test_filename, header="infer"):
+    train_df = pd.read_csv(train_filename, header=header)
+    test_df = pd.read_csv(test_filename, header=header)
+
+    m, n = train_df.shape
+    training_data = train_df.values[:, 1:n]
+    training_target = train_df.values[:, 0].T
+
+    m, n = test_df.shape
+    test_data = test_df.values[:, 1:n]
+    test_target = test_df.values[:, 0].T
+
+    return training_data, training_target, test_data, test_target
 
 
 if __name__ == '__main__':

@@ -48,6 +48,10 @@ class DecisionNode(object):
     def children(self):
         return self._children
 
+    @property
+    def decide_info(self):
+        return self._decide_info
+
     def add_node(self, node, func):
         self.children.append(node)
         self._decide_info.append(func)
@@ -58,16 +62,19 @@ class DecideNode(DecisionNode):
     def __init__(self, parent, decide_index=None):
         super(DecideNode, self).__init__(parent=parent)
         self._decide_index = decide_index
-        self._decide_info = []
         return
 
-    # def decide(self, x):
-    #     for index, func in self.children:
-    #         feature = x[index]
-    #         if func(feature):
-    #             return self.children[index]
-    #
-    #     return None
+    def decide(self, item):
+        feature = item[self.decide_index]
+
+        for index, child in enumerate(self.children):
+            func = self.decide_info[index]
+            if func(feature):
+                if child.is_leaf():
+                    return child.category
+                else:
+                    return child.decide(item)
+        return None
 
     @property
     def decide_index(self):
@@ -159,12 +166,65 @@ def choose_information_entropy(data, target, data_index_list, index_left_list):
     return result_index
 
 
+def choose_gini(data, target, data_index_list, index_left_list):
+    """
+    choose an index that minimize the information entropy
+    """
+    min_entropy = float("inf")
+    result_index = None
+
+    for index in index_left_list:
+        target_dict = defaultdict(list)
+        for index_list in data_index_list:
+            target_dict[data[index_list][index]].append(index_list)
+
+        entropy = 0
+        for value, index_list in target_dict.iteritems():
+            entropy_part = formula.calculate_gini(target, index_list)
+            entropy += len(index_list) * entropy_part / float(len(data_index_list))
+
+        if entropy < min_entropy:
+            result_index = index
+            min_entropy = entropy
+
+    return result_index
+
+
+def choose_gain_ratio(data, target, data_index_list, index_left_list):
+    max_entropy = 0
+    result_index = None
+
+    cur_entropy_part = formula.calculate_entropy(target, data_index_list)
+
+    for index in index_left_list:
+        target_dict = defaultdict(list)
+        for index_list in data_index_list:
+            target_dict[data[index_list][index]].append(index_list)
+
+        entropy = 0
+        iv = formula.calculate_iv(target_dict)
+        for value, index_list in target_dict.iteritems():
+            entropy_part = formula.calculate_entropy(target, index_list)
+            entropy += len(index_list) * entropy_part / float(len(data_index_list))
+
+        result = (cur_entropy_part - entropy) / float(iv)
+
+        if result > max_entropy:
+            result_index = index
+            max_entropy = result
+
+    return result_index
+
 CHOOSE_RANDOM = 1           # random choose index
 CHOOSE_INFO_ENTROPY = 2     # information entropy
+CHOOSE_GAIN_RATIO = 3       # gain ratio
+CHOOSE_GINI = 4             # gini
 
 CHOOSE_FUNC_DICT = {
     CHOOSE_RANDOM: choose_random,
     CHOOSE_INFO_ENTROPY: choose_information_entropy,
+    CHOOSE_GAIN_RATIO: choose_gain_ratio,
+    CHOOSE_GINI: choose_gini,
 }
 
 
@@ -179,11 +239,15 @@ class DecisionTree(object):
         self._max_depth = depth
         return
 
+    def decide(self, item):
+        result = self.root.decide(item)
+        return result
+
     @property
     def max_depth(self):
         return self._max_depth
 
-    def make_tree(self, data, target, choose_func=CHOOSE_RANDOM):
+    def make_tree(self, data, target, choose_func=CHOOSE_INFO_ENTROPY):
         index_left_list = range(len(data[0]))
         data_index_list = range(len(data))
         depth = 1
