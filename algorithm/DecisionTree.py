@@ -15,6 +15,7 @@ from graphviz import Digraph
 from collections import defaultdict
 from utils import formula
 import random
+from collections import Counter
 
 
 class DecisionNode(object):
@@ -41,7 +42,7 @@ class DecisionNode(object):
         return self.parent.get_child_decide_func(self)
 
     def index(self, child):
-        return self._children.index(child)
+        return self.children.index(child)
 
     @property
     def children(self):
@@ -88,9 +89,9 @@ class DecideNode(DecisionNode):
 
     def __repr__(self):
         if not self.parent:
-            return "R index({0})".format(self._decide_index)
+            return "R index({0})".format(self.decide_index)
 
-        return "D index({0})".format(self._decide_index)
+        return "D index({0})".format(self.decide_index)
 
 
 class LeafNode(DecisionNode):
@@ -106,6 +107,15 @@ class LeafNode(DecisionNode):
 
     @property
     def num(self):
+        return self._num
+
+    @property
+    def category(self):
+        return self._category
+
+    @category.setter
+    def category(self, value):
+        self._category = value
         return
 
     @num.setter
@@ -114,10 +124,10 @@ class LeafNode(DecisionNode):
         return
 
     def __repr__(self):
-        return "L category({0}), num({1})".format(self._category, self._num)
+        return "L category({0}), num({1})".format(self.category, self.num)
 
 
-def choose_random(data, data_index_list, index_left_list):
+def choose_random(data, target, data_index_list, index_left_list):
     sample = random.sample(index_left_list, 1)
     if not sample:
         logger.error("failed to choose sample for index_left_list({0})".format(index_left_list))
@@ -145,38 +155,70 @@ class DecisionTree(object):
     def max_depth(self):
         return self._max_depth
 
-    def make_tree(self, data, choose_func=CHOOSE_RANDOM):
+    def make_tree(self, data, target, choose_func=CHOOSE_RANDOM):
         index_left_list = range(len(data[0]))
         data_index_list = range(len(data))
         depth = 1
-        self.make_tree_recursive(data, data_index_list, index_left_list, self.root, depth, choose_func)
+        self.make_tree_recursive(data, target, data_index_list, index_left_list, self.root, depth, choose_func)
         return
 
-    def choose_index(self, choose_func, data, data_index_list, index_left_list):
+    def choose_index(self, choose_func, data, target, data_index_list, index_left_list):
         choose_func = get_choose_func(choose_func)
 
         if not choose_func:
             logger.error("failed to find choose_func for key({0})".format(choose_func))
             return None
 
-        index = choose_func(data, data_index_list, index_left_list)
+        index = choose_func(data, target, data_index_list, index_left_list)
         if index is None:
             logger.error("failed to find index with data_index_list({0}), index_left_list({1}), choose_func({2})"
                          .format(data_index_list, index_left_list, choose_func))
             return None
         return index
 
-    def check_finish(self, data, data_index_list, index_left_list, depth):
-        return len(data_index_list) == 1 or len(index_left_list) == 0 or depth == self.max_depth
+    def check_finish(self, data, target, data_index_list, index_left_list, depth):
 
-    def make_tree_recursive(self, data, data_index_list, index_left_list, root_node, depth, choose_func):
-        if self.check_finish(data, data_index_list, index_left_list, depth):
+        if len(data_index_list) <= 1:   # left one data
+            return True
+
+        cnt = Counter()
+        for index in data_index_list:
+            cnt[target[index]] += 1
+
+        if len(cnt) == 1:               # left one category
+            return True
+
+        if len(index_left_list) == 0:   # no attribute left
+            return True
+
+        if depth == self.max_depth:     # reach the max depth
+            return True
+
+        return False
+
+    def get_majority_category(self, target, data_index_list):
+        cnt = Counter()
+        for index in data_index_list:
+            cnt[target[index]] += 1
+
+        most_common_list = cnt.most_common(1)
+        if not most_common_list:
+            logger.error("can't not find most_common_list for data({0})".format(data_index_list))
+            return None
+
+        category = most_common_list[0][0]
+        return category
+
+    def make_tree_recursive(self, data, target, data_index_list, index_left_list, root_node, depth, choose_func):
+        if self.check_finish(data, target, data_index_list, index_left_list, depth):
             leaf = LeafNode(root_node)
+            category = self.get_majority_category(target, data_index_list)
             leaf.num = len(data_index_list)
+            leaf.category = category
             root_node.add_node(leaf, None)
             return
 
-        index = self.choose_index(choose_func, data, data_index_list, index_left_list)
+        index = self.choose_index(choose_func, data, target, data_index_list, index_left_list)
         if index is None:
             return
 
@@ -190,15 +232,17 @@ class DecisionTree(object):
 
         for key, new_index_list in types_dict.iteritems():
             new_depth = depth + 1
-            if self.check_finish(data, new_index_list, new_index_left_list, new_depth):  # 当然还有其他终止条件
+            if self.check_finish(data, target, new_index_list, new_index_left_list, new_depth):  # 当然还有其他终止条件
                 leaf = LeafNode(root_node)
                 leaf.num = len(new_index_list)
+                category = self.get_majority_category(target, new_index_list)
+                leaf.category = category
                 root_node.add_node(leaf, formula.equal(key))
                 continue
 
             decide_node = DecideNode(root_node)
             root_node.add_node(decide_node, formula.equal(key))
-            self.make_tree_recursive(data, new_index_list, new_index_left_list, decide_node, new_depth, choose_func)
+            self.make_tree_recursive(data, target, new_index_list, new_index_left_list, decide_node, new_depth, choose_func)
         return
 
     @property
