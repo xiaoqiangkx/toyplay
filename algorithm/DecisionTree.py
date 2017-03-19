@@ -14,6 +14,7 @@ from collections import deque
 from graphviz import Digraph
 from collections import defaultdict
 from utils import formula
+import random
 
 
 class DecisionNode(object):
@@ -116,6 +117,23 @@ class LeafNode(DecisionNode):
         return "L category({0}), num({1})".format(self._category, self._num)
 
 
+def choose_random(data, data_index_list, index_left_list):
+    sample = random.sample(index_left_list, 1)
+    if not sample:
+        logger.error("failed to choose sample for index_left_list({0})".format(index_left_list))
+        return None
+    return sample[0]
+
+CHOOSE_RANDOM = 1
+CHOOSE_FUNC_DICT = {
+    CHOOSE_RANDOM: choose_random,
+}
+
+
+def get_choose_func(key):
+    return CHOOSE_FUNC_DICT.get(key, None)
+
+
 class DecisionTree(object):
 
     def __init__(self):
@@ -123,11 +141,25 @@ class DecisionTree(object):
         self._depth = 0
         return
 
-    def make_tree(self, data, choose_func):
+    def make_tree(self, data, choose_func=CHOOSE_RANDOM):
         index_left_list = range(len(data[0]))
         data_index_list = range(len(data))
         self.make_tree_recursive(data, data_index_list, index_left_list, self.root, choose_func)
         return
+
+    def choose_index(self, choose_func, data, data_index_list, index_left_list):
+        choose_func = get_choose_func(choose_func)
+
+        if not choose_func:
+            logger.error("failed to find choose_func for key({0})".format(choose_func))
+            return None
+
+        index = choose_func(data, data_index_list, index_left_list)
+        if index is None:
+            logger.error("failed to find index with data_index_list({0}), index_left_list({1}), choose_func({2})"
+                         .format(data_index_list, index_left_list, choose_func))
+            return None
+        return index
 
     def make_tree_recursive(self, data, data_index_list, index_left_list, root_node, choose_func):
         if len(data_index_list) == 1 or len(index_left_list) == 0:
@@ -136,7 +168,10 @@ class DecisionTree(object):
             root_node.add_node(leaf, None)
             return
 
-        index = choose_func(index_left_list)
+        index = self.choose_index(choose_func, data, data_index_list, index_left_list)
+        if index is None:
+            return
+
         new_index_left_list = [x for x in index_left_list]
         new_index_left_list.remove(index)
         root_node.decide_index = index

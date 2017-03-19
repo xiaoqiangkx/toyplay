@@ -32,8 +32,7 @@ def make_tree(data):
     rule: choose the first remaining features left
     """
     tree = DecisionTree()
-    choose_func = lambda x: random.sample(x, 1)[0]
-    tree.make_tree(data, choose_func)
+    tree.make_tree(data)
     return tree
 
 
