@@ -134,9 +134,37 @@ def choose_random(data, target, data_index_list, index_left_list):
         return None
     return sample[0]
 
-CHOOSE_RANDOM = 1
+
+def choose_information_entropy(data, target, data_index_list, index_left_list):
+    """
+    choose an index that minimize the information entropy
+    """
+    min_entropy = float("inf")
+    result_index = None
+
+    for index in index_left_list:
+        target_dict = defaultdict(list)
+        for index_list in data_index_list:
+            target_dict[data[index_list][index]].append(index_list)
+
+        entropy = 0
+        for value, index_list in target_dict.iteritems():
+            entropy_part = formula.calculate_entropy(target, index_list)
+            entropy += len(index_list) * entropy_part / float(len(data_index_list))
+
+        if entropy < min_entropy:
+            result_index = index
+            min_entropy = entropy
+
+    return result_index
+
+
+CHOOSE_RANDOM = 1           # random choose index
+CHOOSE_INFO_ENTROPY = 2     # information entropy
+
 CHOOSE_FUNC_DICT = {
     CHOOSE_RANDOM: choose_random,
+    CHOOSE_INFO_ENTROPY: choose_information_entropy,
 }
 
 

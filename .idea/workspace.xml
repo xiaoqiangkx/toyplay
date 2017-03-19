@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d46c789a-3f1f-49eb-8da0-a3620801f708" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/algorithm/DecisionTree.py" afterPath="$PROJECT_DIR$/algorithm/DecisionTree.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testes/decision_tree_test.py" afterPath="$PROJECT_DIR$/testes/decision_tree_test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/formula.py" afterPath="$PROJECT_DIR$/utils/formula.py" />
     </list>
     <ignored path="toyplay.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,7 +24,7 @@
     <favorites_list name="toyplay" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4882591">
+    <splitter split-orientation="horizontal" split-proportion="0.52064776">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="DecisionTreeClassifier.py" pinned="false" current-in-tab="false">
@@ -41,10 +40,22 @@
           <file leaf-file-name="decision_tree_test.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/testes/decision_tree_test.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="378">
-                  <caret line="44" column="45" selection-start-line="44" selection-start-column="45" selection-end-line="44" selection-end-column="45" />
+                <state relative-caret-position="209">
+                  <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
                   <folding>
-                    <element signature="e#147#194#0" expanded="true" />
+                    <element signature="e#147#187#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="formula.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/utils/formula.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="260">
+                  <caret line="81" column="31" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
+                  <folding>
+                    <element signature="e#182#200#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -57,8 +68,8 @@
           <file leaf-file-name="DecisionTree.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/algorithm/DecisionTree.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="280">
-                  <caret line="187" column="40" selection-start-line="187" selection-start-column="40" selection-end-line="187" selection-end-column="40" />
+                <state relative-caret-position="-168">
+                  <caret line="153" column="0" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
                   <folding>
                     <element signature="e#179#203#0" expanded="true" />
                   </folding>
@@ -94,10 +105,10 @@
         <option value="$PROJECT_DIR$/utils/file_utils.py" />
         <option value="$PROJECT_DIR$/logistic/logistic.py" />
         <option value="$PROJECT_DIR$/tree/DecisionTree.py" />
-        <option value="$PROJECT_DIR$/utils/formula.py" />
         <option value="$PROJECT_DIR$/tree/DecisionTreeClassifier.py" />
         <option value="$PROJECT_DIR$/README.md.py" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/utils/formula.py" />
         <option value="$PROJECT_DIR$/algorithm/DecisionTree.py" />
         <option value="$PROJECT_DIR$/testes/decision_tree_test.py" />
       </list>
@@ -528,7 +539,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20527859" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30351907" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -578,7 +589,7 @@
         <state relative-caret-position="510">
           <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
           <folding>
-            <element signature="e#147#194#0" expanded="true" />
+            <element signature="e#147#187#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -674,13 +685,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/formula.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="57" column="19" selection-start-line="57" selection-start-column="19" selection-end-line="57" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/watermelon.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -708,12 +712,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/algorithm/DecisionTree.py">
+    <entry file="file://$PROJECT_DIR$/utils/formula.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="187" column="40" selection-start-line="187" selection-start-column="40" selection-end-line="187" selection-end-column="40" />
+        <state relative-caret-position="260">
+          <caret line="81" column="31" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
           <folding>
-            <element signature="e#179#203#0" expanded="true" />
+            <element signature="e#182#200#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -726,12 +730,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/algorithm/DecisionTree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-168">
+          <caret line="153" column="0" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
+          <folding>
+            <element signature="e#179#203#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/testes/decision_tree_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="44" column="45" selection-start-line="44" selection-start-column="45" selection-end-line="44" selection-end-column="45" />
+        <state relative-caret-position="209">
+          <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
           <folding>
-            <element signature="e#147#194#0" expanded="true" />
+            <element signature="e#147#187#0" expanded="true" />
           </folding>
         </state>
       </provider>

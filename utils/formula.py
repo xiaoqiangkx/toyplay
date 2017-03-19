@@ -12,8 +12,9 @@
 1.2017/3/13 21:55
 """
 import numpy as np
-from utils import logger as LOGGER
+from utils import logger
 import operator
+from collections import Counter
 
 
 def sigmoid(x, w):
@@ -28,7 +29,7 @@ def cal(result, test_target_data):
             count += 1
     amount = len(test_target_data[0])
     precision = float(count) / amount
-    LOGGER.info("count({0})/num({1}), precision:{2}".format(count, amount, precision))
+    logger.info("count({0})/num({1}), precision:{2}".format(count, amount, precision))
     return precision
 
 
@@ -36,6 +37,18 @@ def plus_one(X):
     m, n = X.shape
     X = np.row_stack((X, np.ones(n)))
     return X
+
+
+def calculate_entropy(target, index_list):
+    cnt = Counter()
+    for index in index_list:
+        cnt[target[index]] += 1
+
+    result = 0
+    for num in cnt.itervalues():
+        prob = float(num)/len(index_list)
+        result += prob * np.log(prob)
+    return -result
 
 
 # 仿照STL封装一些常用的operator方法,方便以后扩展 #
