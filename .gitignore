@@ -2,3 +2,5 @@
 *.xml
 .DS_Store
 *.pyc
+*.dot
+*.pdf

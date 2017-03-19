@@ -65,6 +65,15 @@ class DecideNode(DecisionNode):
     #
     #     return None
 
+    @property
+    def decide_index(self):
+        return self._decide_index
+
+    @decide_index.setter
+    def decide_index(self, value):
+        self._decide_index = value
+        return
+
     def is_decide(self):
         return True
 
