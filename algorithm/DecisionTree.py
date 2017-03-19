@@ -136,15 +136,20 @@ def get_choose_func(key):
 
 class DecisionTree(object):
 
-    def __init__(self):
+    def __init__(self, depth=10):
         self._root = DecideNode(None, 0)
-        self._depth = 0
+        self._max_depth = depth
         return
+
+    @property
+    def max_depth(self):
+        return self._max_depth
 
     def make_tree(self, data, choose_func=CHOOSE_RANDOM):
         index_left_list = range(len(data[0]))
         data_index_list = range(len(data))
-        self.make_tree_recursive(data, data_index_list, index_left_list, self.root, choose_func)
+        depth = 1
+        self.make_tree_recursive(data, data_index_list, index_left_list, self.root, depth, choose_func)
         return
 
     def choose_index(self, choose_func, data, data_index_list, index_left_list):
@@ -161,8 +166,11 @@ class DecisionTree(object):
             return None
         return index
 
-    def make_tree_recursive(self, data, data_index_list, index_left_list, root_node, choose_func):
-        if len(data_index_list) == 1 or len(index_left_list) == 0:
+    def check_finish(self, data, data_index_list, index_left_list, depth):
+        return len(data_index_list) == 1 or len(index_left_list) == 0 or depth == self.max_depth
+
+    def make_tree_recursive(self, data, data_index_list, index_left_list, root_node, depth, choose_func):
+        if self.check_finish(data, data_index_list, index_left_list, depth):
             leaf = LeafNode(root_node)
             leaf.num = len(data_index_list)
             root_node.add_node(leaf, None)
@@ -180,16 +188,17 @@ class DecisionTree(object):
         for idx in data_index_list:
             types_dict[data[idx][index]].append(idx)
 
-        for key, index_list in types_dict.iteritems():
-            if len(index_list) == 1 or len(new_index_left_list) == 0:  # 当然还有其他终止条件
+        for key, new_index_list in types_dict.iteritems():
+            new_depth = depth + 1
+            if self.check_finish(data, new_index_list, new_index_left_list, new_depth):  # 当然还有其他终止条件
                 leaf = LeafNode(root_node)
-                leaf.num = len(index_list)
+                leaf.num = len(new_index_list)
                 root_node.add_node(leaf, formula.equal(key))
                 continue
 
             decide_node = DecideNode(root_node)
             root_node.add_node(decide_node, formula.equal(key))
-            self.make_tree_recursive(data, index_list, new_index_left_list, decide_node, choose_func)
+            self.make_tree_recursive(data, new_index_list, new_index_left_list, decide_node, new_depth, choose_func)
         return
 
     @property
