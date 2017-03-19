@@ -12,6 +12,8 @@
 from utils import logger
 from collections import deque
 from graphviz import Digraph
+from collections import defaultdict
+from utils import formula
 
 
 class DecisionNode(object):
@@ -119,6 +121,40 @@ class DecisionTree(object):
     def __init__(self):
         self._root = DecideNode(None, 0)
         self._depth = 0
+        return
+
+    def make_tree(self, data, choose_func):
+        index_left_list = range(len(data[0]))
+        data_index_list = range(len(data))
+        self.make_tree_recursive(data, data_index_list, index_left_list, self.root, choose_func)
+        return
+
+    def make_tree_recursive(self, data, data_index_list, index_left_list, root_node, choose_func):
+        if len(data_index_list) == 1 or len(index_left_list) == 0:
+            leaf = LeafNode(root_node)
+            leaf.num = len(data_index_list)
+            root_node.add_node(leaf, None)
+            return
+
+        index = choose_func(index_left_list)
+        new_index_left_list = [x for x in index_left_list]
+        new_index_left_list.remove(index)
+        root_node.decide_index = index
+
+        types_dict = defaultdict(list)
+        for idx in data_index_list:
+            types_dict[data[idx][index]].append(idx)
+
+        for key, index_list in types_dict.iteritems():
+            if len(index_list) == 1 or len(new_index_left_list) == 0:  # 当然还有其他终止条件
+                leaf = LeafNode(root_node)
+                leaf.num = len(index_list)
+                root_node.add_node(leaf, formula.equal(key))
+                continue
+
+            decide_node = DecideNode(root_node)
+            root_node.add_node(decide_node, formula.equal(key))
+            self.make_tree_recursive(data, index_list, new_index_left_list, decide_node, choose_func)
         return
 
     @property
