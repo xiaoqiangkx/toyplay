@@ -6,3 +6,5 @@
 *.pdf
 data/mnist_test.csv
 data/mnist_train.csv
+*.txt
+*.doc
