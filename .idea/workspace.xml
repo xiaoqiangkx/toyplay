@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d46c789a-3f1f-49eb-8da0-a3620801f708" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/match/.ipynb_checkpoints/explore_product-checkpoint.ipynb" afterPath="$PROJECT_DIR$/match/.ipynb_checkpoints/explore_product-checkpoint.ipynb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/match/explore_product.ipynb" afterPath="$PROJECT_DIR$/match/explore_product.ipynb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utils/cmd_table.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/match/.ipynb_checkpoints/titanic-checkpoint.ipynb" afterPath="$PROJECT_DIR$/match/.ipynb_checkpoints/titanic-checkpoint.ipynb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/match/titanic.ipynb" afterPath="$PROJECT_DIR$/match/titanic.ipynb" />
     </list>
     <ignored path="toyplay.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,7 +25,18 @@
     <favorites_list name="toyplay" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="cmd_table.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/utils/cmd_table.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="65" selection-start-line="15" selection-start-column="65" selection-end-line="15" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -57,6 +70,7 @@
         <option value="$PROJECT_DIR$/algorithm/DecisionTree.py" />
         <option value="$PROJECT_DIR$/utils/formula.py" />
         <option value="$PROJECT_DIR$/fetch/fetch_house.py" />
+        <option value="$PROJECT_DIR$/utils/cmd_table.py" />
       </list>
     </option>
   </component>
@@ -129,7 +143,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../scikit-learn/sklearn" />
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="SearchEverywhereHistoryKey" value="DECI&#9;FILE&#9;file:///Users/coolman/workspace/ml/toyplay/algorithm/DecisionTree.py" />
@@ -417,9 +431,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="803" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1564482" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1564482" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -663,6 +677,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="69" selection-start-line="9" selection-start-column="69" selection-end-line="9" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/cmd_table.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="65" selection-start-line="15" selection-start-column="65" selection-end-line="15" selection-end-column="65" />
           <folding />
         </state>
       </provider>
