@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d46c789a-3f1f-49eb-8da0-a3620801f708" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utils/cmd_table.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/match/.ipynb_checkpoints/titanic-checkpoint.ipynb" afterPath="$PROJECT_DIR$/match/.ipynb_checkpoints/titanic-checkpoint.ipynb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/match/titanic.ipynb" afterPath="$PROJECT_DIR$/match/titanic.ipynb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/match/fraud_detection.ipynb" afterPath="$PROJECT_DIR$/match/fraud_detection.ipynb" />
     </list>
     <ignored path="toyplay.iws" />
     <ignored path=".idea/workspace.xml" />
