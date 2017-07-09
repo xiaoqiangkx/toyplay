@@ -10,5 +10,5 @@
 1.2017/6/29 21:44
 """
 
-if __name__ == '__main__':
-    pass
+
+from application.classifier import LGBMClassifier
