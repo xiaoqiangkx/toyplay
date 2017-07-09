@@ -88,10 +88,32 @@ class BinMapper(object):
         bin_upper_bound.append(float("inf"))
         return bin_upper_bound
 
+    def find_bin_idx(self, value):
+        # find the bin for value, use bi_search
+        st = 0
+        data = self._bin_upper_bound
+        ed = len(data) - 1
+
+        mid = -1
+        while st <= ed:
+            mid = (st + ed) / 2
+            print mid, st, ed
+            if data[mid] == value:
+                break
+            elif data[mid] < value:
+                st = mid + 1
+            else:
+                ed = mid - 1
+
+        return mid
+
 
 class OrderedBin(object):
     pass
 
 
 if __name__ == '__main__':
-    pass
+    bin_mapper = BinMapper()
+    bin_mapper._bin_upper_bound = [0, 1, 3, 4, 5, float("inf")]
+    result = bin_mapper.find_bin_idx(3.5)
+    print result

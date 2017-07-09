@@ -47,10 +47,10 @@ class LGBMClassifier(object):
         self._train_data = Dataset(X, y, feature_name)
         self._bin_mappers = self._train_data.create_bin_mapper(self._max_bin)
         self._train_data.construct(self._bin_mappers)
-        # self._boosting.init()
-        #
-        # for i in xrange(self._n_estimators):
-        #     self._boosting.train_one_iter(self._train_data)
+        self._boosting.init(self._train_data, num_leaves=self._num_leaves)
+
+        for i in xrange(self._n_estimators):
+            self._boosting.train_one_iter(self._train_data)
         return
 
     def print_bin_mappers(self):
