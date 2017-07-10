@@ -15,6 +15,7 @@ import numpy as np
 import py_lightgbm as lgb
 from sklearn import model_selection
 
+
 DATA_PATH = "../../data/mnist_train.csv"
 
 

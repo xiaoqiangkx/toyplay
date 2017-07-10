@@ -42,11 +42,9 @@ class Dataset(object):
         self._labels = None
         self._label2real = {}
         self._real2label = {}
-        self.create_label(y)
-
         self._init_score = None
-
         self._bin_mappers = None
+        self.create_label(y)
         return
 
     @property
@@ -69,7 +67,7 @@ class Dataset(object):
         labels = np.zeros(y.shape)
         self._init_score = np.zeros(y.shape)
 
-        raw_labels = Counter(labels).keys()
+        raw_labels = Counter(y).keys()
         self._label2real = {
             1: raw_labels[0],
             -1: raw_labels[1],

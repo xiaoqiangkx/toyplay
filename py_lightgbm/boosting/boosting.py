@@ -24,7 +24,7 @@ class Booster(object):
         self._booster.init(train_data, num_leaves)
         return
 
-    def train_one_iter(self, train_data, gradients, hessians):
+    def train_one_iter(self, train_data, gradients=None, hessians=None):
         self._booster.train_one_iter(train_data)
         return
 
