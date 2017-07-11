@@ -63,17 +63,21 @@ class Dataset(object):
     def init_score(self):
         return self._init_score
 
-    def split(self, feature_index, threshold, indices, begin, end):
+    def split(self, feature_index, threshold_bin, indices, begin, end):
         left_indices = []
         right_indices = []
 
         bin_mapper = self._bin_mappers[feature_index]
-        low_bound = bin_mapper.find_lower_bound(threshold)
+        low_bound = 0
+        if threshold_bin > 0:
+            low_bound = bin_mapper.upper_at(threshold_bin - 1)
+
+        upper_bound = bin_mapper.upper_at(threshold_bin)
 
         for i in range(begin, end):
             index = indices[i]
             value = self._train_X[index, feature_index]
-            if threshold >= value > low_bound:
+            if upper_bound >= value > low_bound:
                 left_indices.append(index)
             else:
                 right_indices.append(index)

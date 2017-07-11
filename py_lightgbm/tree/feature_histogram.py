@@ -64,7 +64,7 @@ class FeatureHistogram(object):
         best_sum_left_hessians = const.Epsion
         best_gain = 0
         best_left_count = 0
-        best_threshold = 0
+        best_threshold_bin = 0
 
         sum_left_gradients = 0
         sum_left_hessians = const.Epsion
@@ -86,9 +86,9 @@ class FeatureHistogram(object):
                 best_sum_left_hessians = sum_left_hessians
                 best_gain = current_gain
                 best_left_count = left_count
-                best_threshold = bin
+                best_threshold_bin = bin
 
-        split_info.threshold = best_threshold
+        split_info.best_threshold_bin = best_threshold_bin
         split_info.feature_index = self._feature_index
         split_info.gain = best_gain
 

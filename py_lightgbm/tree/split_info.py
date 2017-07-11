@@ -15,6 +15,7 @@ class SplitInfo(object):
     def __init__(self):
         self.feature_index = -1
         self.threshold = 0
+        self.threshold_bin = -1
 
         self.left_output = 0
         self.right_output = 0
@@ -32,6 +33,7 @@ class SplitInfo(object):
     def reset(self):
         self.feature_index = -1
         self.threshold = 0
+        self.threshold_bin = -1
 
         self.left_output = 0
         self.right_output = 0

@@ -53,6 +53,9 @@ class BinMapper(object):
     def __len__(self):
         return len(self._bin_upper_bound)
 
+    def upper_at(self, bin_index):
+        return self._bin_upper_bound[bin_index]
+
     def find_lower_bound(self, threshold):
         print self._bin_upper_bound
         index = self._bin_upper_bound.index(threshold)

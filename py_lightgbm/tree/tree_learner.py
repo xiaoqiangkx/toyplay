@@ -60,6 +60,8 @@ class TreeLearner(object):
         cur_depth = 1
 
         for split in xrange(self._num_leaves - 1):
+            print "current split num_leave:", split
+
             if not self.before_find_best_leave(new_tree, left_leaf, right_leaf):    # 检查数据
                 break
 
@@ -185,7 +187,7 @@ class TreeLearner(object):
             left_leaf,
             self._train_data,
             best_split_info.feature_index,
-            best_split_info.threshold,
+            best_split_info.best_threshold_bin,
             right_leaf
         )
 

@@ -42,13 +42,13 @@ class DataPartition(object):
 
         return self._indices[begin:begin+cnt]
 
-    def split(self, left_leaf, train_data, feature_index, threshold, right_leaf):
+    def split(self, left_leaf, train_data, feature_index, threshold_bin, right_leaf):
 
         begin = self._leaf_begin[left_leaf]
         cnt = self._leaf_count[left_leaf]
 
         # 将这个leaf划分为两份
-        left_indices, right_indices = train_data.split(feature_index, threshold, self._indices, begin, begin + cnt)
+        left_indices, right_indices = train_data.split(feature_index, threshold_bin, self._indices, begin, begin + cnt)
         left_cnt = len(left_indices)
 
         self._indices[begin:begin+left_cnt] = left_indices
@@ -60,7 +60,6 @@ class DataPartition(object):
         self._leaf_begin[right_leaf] = begin + left_cnt
         self._leaf_count[right_leaf] = cnt - left_cnt
 
-        print self._leaf_begin[left_leaf],
         return
 
 

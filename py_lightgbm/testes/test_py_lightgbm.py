@@ -34,7 +34,7 @@ def main():
         'max_depth': 10,
         'learning_rate': 0.1,
         # 'reg_lambda': 0.7,
-        'n_estimators': 100,
+        'n_estimators': 2,
         # 'silent': True
     }
 
