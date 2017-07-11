@@ -50,6 +50,18 @@ class BinMapper(object):
         self._default_bin = 0
         return
 
+    def __len__(self):
+        return len(self._bin_upper_bound)
+
+    def find_lower_bound(self, threshold):
+        print self._bin_upper_bound
+        index = self._bin_upper_bound.index(threshold)
+
+        if index == 0:
+            return -float("inf")
+
+        return self._bin_upper_bound[index - 1]
+
     def find_bin(self, values, max_bin, bin_type=TYPE_NUMERICAL, min_data_in_bin=0, min_split_data=0):
         """
         Construct feature values to binMapper
@@ -97,7 +109,6 @@ class BinMapper(object):
         mid = -1
         while st <= ed:
             mid = (st + ed) / 2
-            print mid, st, ed
             if data[mid] == value:
                 break
             elif data[mid] < value:

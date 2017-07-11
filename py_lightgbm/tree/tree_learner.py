@@ -12,6 +12,9 @@
 from py_lightgbm.tree.tree import Tree
 from py_lightgbm.tree.feature_histogram import FeatureHistogram
 from py_lightgbm.tree.split_info import SplitInfo
+from py_lightgbm.tree.leaf_splits import LeafSplits
+from py_lightgbm.tree.data_partition import DataPartition
+import copy
 
 
 class TreeLearner(object):
@@ -28,18 +31,20 @@ class TreeLearner(object):
 
         self._smaller_leaf_histogram_array = []
         self._larger_leaf_histogram_array_ = []
-        self._best_split_per_leaf = {}
+        self._best_split_per_leaf = None      # store all the split info
 
-        self._smaller_leaf_split = None     # store the best splits for this leaf at smaller leaf
-        self._larger_leaf_split = None
-
+        self._smaller_leaf_split = LeafSplits(self._num_data)     # store the best splits for this leaf at smaller leaf
+        self._larger_leaf_split = LeafSplits(self._num_data)
+        self._data_partition = None
         self.init()
         return
 
     def init(self):
-        # TODO
-        self._histogram_pool.DynamicChangeSize(self._train_data, self._tree_config,
-                                               self._max_cache_size, self._tree_config.num_leaves)
+        # self._histogram_pool.DynamicChangeSize(self._train_data, self._tree_config,
+        #                                        self._max_cache_size, self._tree_config.num_leaves)
+
+        self._best_split_per_leaf = [SplitInfo() for x in xrange(self._num_leaves)]
+        self._data_partition = DataPartition(self._num_data, self._num_leaves)
         return
 
     def train(self, gradients, hessians):
@@ -61,13 +66,13 @@ class TreeLearner(object):
             self.find_best_splits()
 
             best_leaf = self.get_max_gain()
-            self.split(new_tree, best_leaf, left_leaf, right_leaf)
+            left_leaf, right_leaf = self.split(new_tree, best_leaf)
         return
 
     def get_max_gain(self):
         best_leaf = None
         current_gain = 0.0
-        for leaf, split_info in self._best_split_per_leaf.iteritems():
+        for leaf, split_info in enumerate(self._best_split_per_leaf):
             if split_info.gain > current_gain:
                 best_leaf = leaf
                 current_gain = split_info.gain
@@ -75,8 +80,18 @@ class TreeLearner(object):
         return best_leaf
 
     def before_train(self):
-        # TODO: 利用gradients和hessians做一些事情
-        self._histogram_pool.resetMap()
+        # self._histogram_pool.resetMap()
+
+        # data_partition等元素
+        self._data_partition.init()
+
+        # 初始化smaller_leaf_split等
+        for i in xrange(self._num_leaves):
+            self._best_split_per_leaf[i].reset()
+
+        self._smaller_leaf_split.init(self._gradients, self._hessians)
+        self._larger_leaf_split.reset()
+
         return
 
     def find_best_splits(self):
@@ -91,8 +106,8 @@ class TreeLearner(object):
         # construct smaller leaf
         self._smaller_leaf_histogram_array = self._train_data.construct_histograms(
             is_feature_used,
-            self._smaller_leaf_split.data_indices(),
-            self._smaller_leaf_split.leaf_index(),
+            self._smaller_leaf_split.data_indices,
+            self._smaller_leaf_split.leaf_index,
             self._gradients,
             self._hessians,
         )
@@ -100,8 +115,8 @@ class TreeLearner(object):
         # construct larger leaf
         self._larger_leaf_histogram_array_ = self._train_data.construct_histograms(
             is_feature_used,
-            self._larger_leaf_split.data_indices(),
-            self._larger_leaf_split.leaf_index(),
+            self._larger_leaf_split.data_indices,
+            self._larger_leaf_split.leaf_index,
             self._gradients,
             self._hessians,
         )
@@ -113,53 +128,97 @@ class TreeLearner(object):
         larger_best = SplitInfo()
 
         for feature_index in xrange(self._num_features):
-            if not is_feature_used(feature_index):
+            if not is_feature_used[feature_index]:
                 continue
 
             # self._train_data.fix_histograms()
-            smaller_split = self._smaller_leaf_histogram_array[feature_index].find_best_threshold(
-                self._smaller_leaf_split.sum_gradients(),
-                self._smaller_leaf_split.sum_hessians(),
-                self._smaller_leaf_split.num_data_in_leaf(),
-            )
+            if self._smaller_leaf_histogram_array:
+                smaller_split = self._smaller_leaf_histogram_array[feature_index].find_best_threshold(
+                    self._smaller_leaf_split.sum_gradients,
+                    self._smaller_leaf_split.sum_hessians,
+                    self._smaller_leaf_split.num_data_in_leaf,
+                )
 
-            if smaller_split > smaller_best:
-                smaller_best = smaller_split
+                if smaller_split.gain > smaller_best.gain:
+                    # print "smaller_split:", smaller_split.gain, smaller_best.gain
+                    smaller_best = copy.deepcopy(smaller_split)
 
-            larger_split = self._larger_leaf_histogram_array_[feature_index].find_best_threshold(
-                self._larger_leaf_split.sum_gradients(),
-                self._larger_leaf_split.sum_hessians(),
-                self._larger_leaf_split.num_data_in_leaf(),
-            )
-            if larger_split > larger_best:
-                larger_best = larger_split
+            if self._larger_leaf_histogram_array_:
+                larger_split = self._larger_leaf_histogram_array_[feature_index].find_best_threshold(
+                    self._larger_leaf_split.sum_gradients,
+                    self._larger_leaf_split.sum_hessians,
+                    self._larger_leaf_split.num_data_in_leaf,
+                )
 
-        leaf = self._smaller_leaf_split.leaf_index()
-        self._best_split_per_leaf[leaf] = smaller_best
+                if larger_split.gain > larger_best.gain:
+                    # print "larger_split:", larger_split.gain, larger_best.gain
+                    larger_best = copy.deepcopy(larger_split)
 
-        leaf = self._larger_leaf_split.leaf_index()
-        self._best_split_per_leaf[leaf] = larger_best
+        if self._smaller_leaf_split.leaf_index >= 0:
+            leaf = self._smaller_leaf_split.leaf_index
+            self._best_split_per_leaf[leaf] = smaller_best
 
+        if self._larger_leaf_split.leaf_index >= 0:
+            leaf = self._larger_leaf_split.leaf_index
+            self._best_split_per_leaf[leaf] = larger_best
         return
 
     def before_find_best_leave(self, new_tree, left_leaf, right_leaf):
+        # TODO: max_depth
+
+        # TODO: min_data_in_leaf
+
+        # TODO: histogram pool
         return True
 
-    def split(self, new_tree, best_leaf, left_leaf, right_leaf):
+    def split(self, new_tree, best_leaf):
+        left_leaf = best_leaf
         best_split_info = self._best_split_per_leaf[best_leaf]
-
-        default_value = 0.0
 
         right_leaf = new_tree.split(
             best_leaf,
             best_split_info,
         )
 
-        # TODO: data_partition
+        # data_partition
+        self._data_partition.split(
+            left_leaf,
+            self._train_data,
+            best_split_info.feature_index,
+            best_split_info.threshold,
+            right_leaf
+        )
 
         # init the leaves that used on next iteration: smaller_leaf_splits_ used for split
+        if best_split_info.left_count > best_split_info.right_count:
+            self._smaller_leaf_split.init_with_data_partition(
+                left_leaf,
+                self._data_partition,
+                self._gradients,
+                self._hessians,
+            )
 
-        return
+            self._larger_leaf_split.init_with_data_partition(
+                right_leaf,
+                self._data_partition,
+                self._gradients,
+                self._hessians,
+            )
+        else:
+            self._larger_leaf_split.init_with_data_partition(
+                left_leaf,
+                self._data_partition,
+                self._gradients,
+                self._hessians,
+            )
+
+            self._smaller_leaf_split.init_with_data_partition(
+                right_leaf,
+                self._data_partition,
+                self._gradients,
+                self._hessians,
+            )
+        return left_leaf, right_leaf
 
 
 if __name__ == '__main__':

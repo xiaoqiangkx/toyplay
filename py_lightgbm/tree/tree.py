@@ -49,11 +49,37 @@ class Tree(object):
         """
         new_node_idx = self.num_leaves - 1
 
+        parent = self.leaf_parent[leaf]
+        if parent >= 0:
+            if self.left_child[parent] == -leaf - 1:
+                self.left_child[parent] = new_node_idx
+            else:
+                self.right_child[parent] = new_node_idx
+
         self.split_feature_index[new_node_idx] = split_info.feature_index
         self.threshold_in_bin[new_node_idx] = split_info.threshold
         self.split_gain[new_node_idx] = split_info.gain
-        self.left_child[new_node_idx] = 
-        return
+
+        self.left_child[new_node_idx] = -leaf - 1
+        self.right_child[new_node_idx] = -self.num_leaves - 1
+
+        self.leaf_parent[leaf] = new_node_idx
+        self.leaf_parent[self.num_leaves] = new_node_idx
+
+        self.internal_values[new_node_idx] = self.leaf_values[leaf]
+        self.internal_counts[new_node_idx] = self.leaf_counts[leaf]
+
+        self.leaf_values[leaf] = split_info.left_output
+        self.leaf_values[self.num_leaves] = split_info.right_output
+
+        self.leaf_counts[leaf] = split_info.left_count
+        self.leaf_counts[self.num_leaves] = split_info.right_count
+
+        self.leaf_depth[self.num_leaves] = self.leaf_depth[leaf] + 1
+        self.leaf_depth[leaf] += 1
+
+        self.num_leaves += 1
+        return self.num_leaves - 1
 
 
     def predict(self, feature_values):

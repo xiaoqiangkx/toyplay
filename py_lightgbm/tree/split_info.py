@@ -13,7 +13,24 @@
 
 class SplitInfo(object):
     def __init__(self):
-        self.feature_index = 0
+        self.feature_index = -1
+        self.threshold = 0
+
+        self.left_output = 0
+        self.right_output = 0
+        self.gain = 0
+
+        self.left_count = 0
+        self.right_count = 0
+
+        self.left_sum_gradients = 0
+        self.left_sum_hessians = 0
+        self.right_sum_gradients = 0
+        self.right_sum_hessians = 0
+        return
+
+    def reset(self):
+        self.feature_index = -1
         self.threshold = 0
 
         self.left_output = 0

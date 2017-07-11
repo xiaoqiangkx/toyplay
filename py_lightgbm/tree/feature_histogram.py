@@ -47,6 +47,7 @@ class FeatureHistogram(object):
             bin = self._bin_mapper.find_bin_idx(value)
             if bin < 0:
                 continue
+
             self._bin_entry[bin].sum_gradients += ordered_gradients[data_index]
             self._bin_entry[bin].sum_hessians += ordered_hessians[data_index]
             self._bin_entry[bin].cnt += 1

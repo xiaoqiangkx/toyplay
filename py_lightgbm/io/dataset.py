@@ -63,6 +63,23 @@ class Dataset(object):
     def init_score(self):
         return self._init_score
 
+    def split(self, feature_index, threshold, indices, begin, end):
+        left_indices = []
+        right_indices = []
+
+        bin_mapper = self._bin_mappers[feature_index]
+        low_bound = bin_mapper.find_lower_bound(threshold)
+
+        for i in range(begin, end):
+            index = indices[i]
+            value = self._train_X[index, feature_index]
+            if threshold >= value > low_bound:
+                left_indices.append(index)
+            else:
+                right_indices.append(index)
+
+        return left_indices, right_indices
+
     def create_label(self, y):
         labels = np.zeros(y.shape)
         self._init_score = np.zeros(y.shape)
@@ -89,23 +106,19 @@ class Dataset(object):
         return
 
     def construct_histograms(self, is_feature_used, data_indices, leaf_idx, gradients, hessians):
-        ordered_gradients = gradients[data_indices]
-        ordered_hessians = hessians[data_indices]
+        if not data_indices:
+            return None
 
         feature_histograms = []
         # 为每一个feature建立一个Bin数据,Bin数据用于之后的划分
         for feature_index in xrange(self._num_features):
             feature_histogram = FeatureHistogram(feature_index, self._bin_mappers[feature_index])
-            feature_histogram.init(self._train_X, data_indices, ordered_gradients, ordered_hessians)
+            feature_histogram.init(self._train_X, data_indices, gradients, hessians)
             feature_histograms.append(feature_histogram)
 
         return feature_histograms
 
     def fix_histogram(self, feature_idx, sum_gradients, sum_hessian, num_data, histogram_data):
-
-        return
-
-    def split(self, feature, threshold, default_bin_for_zero, data_indices, num_data, lte_indices, gt_indices):
 
         return
 
