@@ -21,6 +21,16 @@ class LeafSplits(object):
         self.data_indices = range(num_data)
         return
 
+    def __str__(self):
+        repr_str = "leaf_index:{0}, num_data:{1}, sum_gradients:{2}, sum_hessians:{3}\nindices{4}".format(
+            self.leaf_index,
+            self.num_data_in_leaf,
+            self.sum_gradients,
+            self.sum_hessians,
+            self.data_indices,
+        )
+        return repr_str
+
     def init(self, gradients, hessians):
         self.leaf_index = 0
         self.sum_gradients = sum(gradients)

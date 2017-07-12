@@ -53,6 +53,10 @@ class LGBMClassifier(object):
             self._boosting.train_one_iter(self._train_data)
         return
 
+    def show(self):
+        self._boosting.show()
+        return
+
     def print_bin_mappers(self):
         for bin_mapper in self._bin_mappers:
             print ""

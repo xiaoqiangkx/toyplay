@@ -26,6 +26,8 @@ class Gbdt(object):
 
         self._models = []
         self._coefs = []
+        self._tree_list = []        # 记录所有的树
+        self._tree_coef = []        # 记录所有的因子
         return
 
     def init(self, train_data, num_leaves):
@@ -46,8 +48,9 @@ class Gbdt(object):
             hessians = self._hessians
 
         # only use one tree in one iterations
-        tree = TreeLearner(self._num_leaves, self._train_data)
-        tree.train(gradients, hessians)
+        tree_learner = TreeLearner(self._num_leaves, self._train_data)
+        tree = tree_learner.train(gradients, hessians)
+        self._tree_list.append(tree)
         return
 
     def _boosting(self):
@@ -57,6 +60,14 @@ class Gbdt(object):
         self._gradients, self._hessians = self._object_function.get_gradients(self._scores)
         return
 
+    def show(self):
+        """
+        展示所有的tree信息
+        """
+        for index, tree in enumerate(self._tree_list):
+            print "\n======================show tree {0}".format(index + 1)
+            tree.show()
+        return
 
 if __name__ == '__main__':
     pass

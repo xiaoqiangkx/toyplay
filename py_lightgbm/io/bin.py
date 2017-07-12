@@ -50,6 +50,13 @@ class BinMapper(object):
         self._default_bin = 0
         return
 
+    def __repr__(self):
+        return self.__str__()
+
+    def __str__(self):
+        repr_str = "nb:{0}, bound:{1}".format(self._num_bins, self._bin_upper_bound)
+        return repr_str
+
     def __len__(self):
         return len(self._bin_upper_bound)
 
@@ -69,7 +76,7 @@ class BinMapper(object):
         """
         Construct feature values to binMapper
         """
-        distinct_values = list(set(values))     # set操作会默认进行排序操作
+        distinct_values = sorted(list(set(values)))     # set操作会默认进行排序操作
         self._min_value = distinct_values[0]
         self._max_value = distinct_values[-1]
         counts = Counter(values)

@@ -28,6 +28,10 @@ class Booster(object):
         self._booster.train_one_iter(train_data)
         return
 
+    def show(self):
+        self._booster.show()
+        return
+
 
 if __name__ == '__main__':
     pass

@@ -14,6 +14,9 @@ import pandas as pd
 import numpy as np
 import py_lightgbm as lgb
 from sklearn import model_selection
+from collections import Counter
+import logging
+logging.basicConfig()
 
 
 DATA_PATH = "../../data/mnist_train.csv"
@@ -30,7 +33,7 @@ def main():
     params = {
         'boosting_type': 'gbdt',
         'objective': 'binary',
-        'num_leaves': 50,
+        'num_leaves': 10,
         'max_depth': 10,
         'learning_rate': 0.1,
         # 'reg_lambda': 0.7,
@@ -40,8 +43,10 @@ def main():
 
     print('light GBM train :-)')
     clf = lgb.LGBMClassifier(**params)
-    result_base = clf.fit(X_train, y_train)
-    # score = result_base.score(X_test, y_test)
+    print "data_shape", X_train.shape, Counter(y_train)
+    clf.fit(X_train, y_train)
+    clf.show()
+    # score = clf.score(X_test, y_test)
     # print "score:", score
 
 

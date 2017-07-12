@@ -2,17 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d46c789a-3f1f-49eb-8da0-a3620801f708" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/py_lightgbm/tree/leaf_splits.py" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/py_lightgbm/tree/data_partition.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/toyplay.iml" afterPath="$PROJECT_DIR$/.idea/toyplay.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py_lightgbm/tree/split_info.py" afterPath="$PROJECT_DIR$/py_lightgbm/tree/split_info.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py_lightgbm/io/bin.py" afterPath="$PROJECT_DIR$/py_lightgbm/io/bin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/py_lightgbm/tree/leaf_splits.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py_lightgbm/io/dataset.py" afterPath="$PROJECT_DIR$/py_lightgbm/io/dataset.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py_lightgbm/tree/tree_learner.py" afterPath="$PROJECT_DIR$/py_lightgbm/tree/tree_learner.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py_lightgbm/tree/feature_histogram.py" afterPath="$PROJECT_DIR$/py_lightgbm/tree/feature_histogram.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py_lightgbm/tree/tree_learner.py" afterPath="$PROJECT_DIR$/py_lightgbm/tree/tree_learner.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py_lightgbm/tree/tree.py" afterPath="$PROJECT_DIR$/py_lightgbm/tree/tree.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/toyplay.iml" afterPath="$PROJECT_DIR$/.idea/toyplay.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py_lightgbm/io/bin.py" afterPath="$PROJECT_DIR$/py_lightgbm/io/bin.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py_lightgbm/tree/split_info.py" afterPath="$PROJECT_DIR$/py_lightgbm/tree/split_info.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py_lightgbm/tree/feature_histogram.py" afterPath="$PROJECT_DIR$/py_lightgbm/tree/feature_histogram.py" />
     </list>
     <ignored path="toyplay.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,7 +26,8 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/toyplay$test_py_lightgbm.coverage" NAME="test_py_lightgbm Coverage Results" MODIFIED="1499740182868" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/py_lightgbm/testes" />
+    <SUITE FILE_PATH="coverage/toyplay$bin.coverage" NAME="bin Coverage Results" MODIFIED="1499861257211" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/py_lightgbm/io" />
+    <SUITE FILE_PATH="coverage/toyplay$test_py_lightgbm.coverage" NAME="test_py_lightgbm Coverage Results" MODIFIED="1499862235871" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/py_lightgbm/testes" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -40,12 +41,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="test_py_lightgbm.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/py_lightgbm/testes/test_py_lightgbm.py">
+      <file leaf-file-name="tree_learner.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/py_lightgbm/tree/tree_learner.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5597484" vertical-offset="426" max-vertical-offset="1092">
-              <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="3658" max-vertical-offset="6027">
+              <caret line="191" column="31" selection-start-line="191" selection-start-column="31" selection-end-line="191" selection-end-column="31" />
+              <folding>
+                <element signature="e#131#169#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -53,38 +56,8 @@
       <file leaf-file-name="data_partition.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/py_lightgbm/tree/data_partition.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1491">
-              <caret line="50" column="51" selection-start-line="50" selection-start-column="51" selection-end-line="50" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bin.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/py_lightgbm/io/bin.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1185" max-vertical-offset="2919">
-              <caret line="67" column="46" selection-start-line="67" selection-start-column="46" selection-end-line="67" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tree_learner.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/py_lightgbm/tree/tree_learner.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="849" max-vertical-offset="4788">
-              <caret line="58" column="23" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="feature_histogram.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/py_lightgbm/tree/feature_histogram.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1416" max-vertical-offset="3801">
-              <caret line="90" column="58" selection-start-line="90" selection-start-column="40" selection-end-line="90" selection-end-column="58" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1187" max-vertical-offset="1659">
+              <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -93,9 +66,21 @@
       <file leaf-file-name="dataset.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/py_lightgbm/io/dataset.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1206" max-vertical-offset="3066">
-              <caret line="72" column="43" selection-start-line="72" selection-start-column="35" selection-end-line="72" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1180" max-vertical-offset="3066">
+              <caret line="74" column="56" selection-start-line="74" selection-start-column="56" selection-end-line="74" selection-end-column="56" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_py_lightgbm.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/py_lightgbm/testes/test_py_lightgbm.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7100115" vertical-offset="391" max-vertical-offset="1260">
+              <caret line="48" column="14" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
+              <folding>
+                <element signature="e#144#163#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -149,17 +134,18 @@
         <option value="$PROJECT_DIR$/py_lightgbm/objective/objective_function.py" />
         <option value="$PROJECT_DIR$/py_lightgbm/tree/split_info.ipynb" />
         <option value="$PROJECT_DIR$/py_lightgbm/utils/const.py" />
+        <option value="$PROJECT_DIR$/py_lightgbm/application/classifier.py" />
         <option value="$PROJECT_DIR$/py_lightgbm/boosting/boosting.py" />
         <option value="$PROJECT_DIR$/py_lightgbm/boosting/gbdt.py" />
-        <option value="$PROJECT_DIR$/py_lightgbm/application/classifier.py" />
-        <option value="$PROJECT_DIR$/py_lightgbm/tree/tree.py" />
         <option value="$PROJECT_DIR$/py_lightgbm/tree/leaf_splits.py" />
         <option value="$PROJECT_DIR$/py_lightgbm/tree/split_info.py" />
-        <option value="$PROJECT_DIR$/py_lightgbm/tree/feature_histogram.py" />
-        <option value="$PROJECT_DIR$/py_lightgbm/tree/data_partition.py" />
-        <option value="$PROJECT_DIR$/py_lightgbm/io/dataset.py" />
+        <option value="$PROJECT_DIR$/py_lightgbm/tree/tree.py" />
         <option value="$PROJECT_DIR$/py_lightgbm/io/bin.py" />
+        <option value="$PROJECT_DIR$/py_lightgbm/tree/feature_histogram.py" />
+        <option value="$PROJECT_DIR$/py_lightgbm/io/dataset.py" />
+        <option value="$PROJECT_DIR$/py_lightgbm/tree/data_partition.py" />
         <option value="$PROJECT_DIR$/py_lightgbm/tree/tree_learner.py" />
+        <option value="$PROJECT_DIR$/py_lightgbm/logmanager/logger.py" />
         <option value="$PROJECT_DIR$/py_lightgbm/testes/test_py_lightgbm.py" />
       </list>
     </option>
@@ -196,7 +182,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -247,8 +232,27 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="toyplay" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="toyplay" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="py_lightgbm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="logmanager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -256,12 +260,13 @@
     <property name="last_opened_file_path" value="G:/ProgramData/Anaconda/python.exe" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="spli&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/split_info.py&#10;bin.&#9;FILE&#9;file:///Users/coolman/workspace/ml/toyplay/py_lightgbm/io/bin.py&#10;binma&#9;null&#9;null&#10;LE&#9;FILE&#9;file:///Users/coolman/workspace/ml/toyplay/py_lightgbm/tree/leaf_splits.py&#10;leaf&#9;FILE&#9;file:///Users/coolman/workspace/ml/toyplay/py_lightgbm/tree/leaf_splits.py&#10;tree&#9;FILE&#9;file:///Users/coolman/workspace/ml/toyplay/py_lightgbm/tree/tree.py&#10;bin&#9;FILE&#9;file:///Users/coolman/workspace/ml/toyplay/py_lightgbm/io/bin.py&#10;sp&#9;FILE&#9;file:///Users/coolman/workspace/ml/toyplay/py_lightgbm/tree/split_info.py&#10;dataset&#9;FILE&#9;file:///Users/coolman/workspace/ml/toyplay/py_lightgbm/io/dataset.py&#10;split&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/split_info.py&#10;cla&#9;FILE&#9;file:///Users/coolman/workspace/ml/toyplay/py_lightgbm/application/classifier.py&#10;data&#9;FILE&#9;file:///Users/coolman/workspace/ml/toyplay/py_lightgbm/io/dataset.py&#10;DECI&#9;FILE&#9;file:///Users/coolman/workspace/ml/toyplay/algorithm/DecisionTree.py" />
+    <property name="SearchEverywhereHistoryKey" value="BinMapper&#9;null&#9;null&#10;sp&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/split_info.py&#10;tree_&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/tree_learner.py&#10;tree_l&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/tree_learner.py&#10;boo&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/boosting/boosting.py&#10;boos&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/boosting/boosting.py&#10;cla&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/application/classifier.py&#10;tree&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/tree.py&#10;spli&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/split_info.py&#10;bin.&#9;FILE&#9;file:///Users/coolman/workspace/ml/toyplay/py_lightgbm/io/bin.py&#10;binma&#9;null&#9;null&#10;LE&#9;FILE&#9;file:///Users/coolman/workspace/ml/toyplay/py_lightgbm/tree/leaf_splits.py&#10;leaf&#9;FILE&#9;file:///Users/coolman/workspace/ml/toyplay/py_lightgbm/tree/leaf_splits.py&#10;bin&#9;FILE&#9;file:///Users/coolman/workspace/ml/toyplay/py_lightgbm/io/bin.py&#10;dataset&#9;FILE&#9;file:///Users/coolman/workspace/ml/toyplay/py_lightgbm/io/dataset.py&#10;split&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/split_info.py&#10;data&#9;FILE&#9;file:///Users/coolman/workspace/ml/toyplay/py_lightgbm/io/dataset.py&#10;DECI&#9;FILE&#9;file:///Users/coolman/workspace/ml/toyplay/algorithm/DecisionTree.py" />
     <property name="recentsLimit" value="5" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="options.lastSelected" value="preferences.sourceCode.Python" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="FullScreen" value="false" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -377,6 +382,19 @@
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/py_lightgbm/io/bin.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="true" type="BashConfigurationType" factoryName="Bash">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="INTERPRETER_PATH" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <module name="" />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
@@ -393,6 +411,47 @@
       <option name="ADDITIONAL_ARGS" value="" />
       <method />
     </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="toyplay" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="toyplay" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
     <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -407,7 +466,55 @@
       <option name="ADDITIONAL_ARGS" value="" />
       <method />
     </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="toyplay" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="testToRun" value="" />
+      <option name="keywords" value="" />
+      <option name="params" value="" />
+      <option name="USE_PARAM" value="false" />
+      <option name="USE_KEYWORD" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
     <configuration default="true" type="tests" factoryName="Attests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="toyplay" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -470,106 +577,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <method />
-    </configuration>
-    <configuration default="true" type="BashConfigurationType" factoryName="Bash">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="INTERPRETER_PATH" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <module name="" />
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="toyplay" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Unittests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="toyplay" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="py.test">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="toyplay" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="testToRun" value="" />
-      <option name="keywords" value="" />
-      <option name="params" value="" />
-      <option name="USE_PARAM" value="false" />
-      <option name="USE_KEYWORD" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Doctests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="toyplay" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
     <list size="5">
@@ -620,23 +633,42 @@
       <configuration name="Unittests in logistic_test" configurationId="tests" />
     </history-entry>
   </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329927" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4365256" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44209355" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1337953" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1369936" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35634744" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14658849" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4585153" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -644,6 +676,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35634744" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -682,18 +715,13 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/py_lightgbm/boosting/gbdt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="49" column="14" selection-start-line="49" selection-start-column="14" selection-end-line="49" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/py_lightgbm/tree/tree_learner.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="76" column="20" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="20" />
-          <folding />
+          <folding>
+            <element signature="e#131#169#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -708,7 +736,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -716,7 +743,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#144#163#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -731,7 +760,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#131#169#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -939,105 +970,123 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/mnist_train.csv" />
+    <entry file="file://$PROJECT_DIR$/py_lightgbm/objective/objective_function.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.83084005" vertical-offset="97" max-vertical-offset="966">
+          <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/mnist_train.csv">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/py_lightgbm/boosting/boosting.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="426" max-vertical-offset="903">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/py_lightgbm/application/classifier.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="47" column="8" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py_lightgbm/boosting/gbdt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="49" column="14" selection-start-line="49" selection-start-column="14" selection-end-line="49" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py_lightgbm/tree/tree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="56" column="4" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py_lightgbm/tree/leaf_splits.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py_lightgbm/objective/objective_function.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.83084005" vertical-offset="97" max-vertical-offset="966">
-          <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="573" max-vertical-offset="1701">
+          <caret line="52" column="41" selection-start-line="52" selection-start-column="27" selection-end-line="52" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/py_lightgbm/tree/split_info.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6283084" vertical-offset="189" max-vertical-offset="1239">
-          <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.24412297" vertical-offset="831" max-vertical-offset="1470">
+          <caret line="46" column="26" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/py_lightgbm/tree/feature_histogram.py">
+    <entry file="file://$PROJECT_DIR$/py_lightgbm/tree/leaf_splits.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1416" max-vertical-offset="3801">
-          <caret line="90" column="58" selection-start-line="90" selection-start-column="40" selection-end-line="90" selection-end-column="58" />
+        <state vertical-scroll-proportion="0.18148148" vertical-offset="196" max-vertical-offset="1365">
+          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/py_lightgbm/io/dataset.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1206" max-vertical-offset="3066">
-          <caret line="72" column="43" selection-start-line="72" selection-start-column="35" selection-end-line="72" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1180" max-vertical-offset="3066">
+          <caret line="74" column="56" selection-start-line="74" selection-start-column="56" selection-end-line="74" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/py_lightgbm/tree/data_partition.py">
+    <entry file="file://$PROJECT_DIR$/py_lightgbm/logmanager/logger.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="828" max-vertical-offset="1491">
-          <caret line="50" column="51" selection-start-line="50" selection-start-column="51" selection-end-line="50" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.6673729" vertical-offset="0" max-vertical-offset="546">
+          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/py_lightgbm/io/bin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1185" max-vertical-offset="2919">
-          <caret line="67" column="46" selection-start-line="67" selection-start-column="46" selection-end-line="67" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.41830066" vertical-offset="1677" max-vertical-offset="3066">
+          <caret line="89" column="14" selection-start-line="89" selection-start-column="14" selection-end-line="89" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py_lightgbm/tree/feature_histogram.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4117647" vertical-offset="1638" max-vertical-offset="4158">
+          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/py_lightgbm/tree/tree_learner.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="849" max-vertical-offset="4788">
-          <caret line="58" column="23" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="3658" max-vertical-offset="6027">
+          <caret line="191" column="31" selection-start-line="191" selection-start-column="31" selection-end-line="191" selection-end-column="31" />
+          <folding>
+            <element signature="e#131#169#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py_lightgbm/boosting/gbdt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7668845" vertical-offset="782" max-vertical-offset="1638">
+          <caret line="55" column="24" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py_lightgbm/tree/tree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37254903" vertical-offset="1068" max-vertical-offset="2352">
+          <caret line="59" column="70" selection-start-line="59" selection-start-column="70" selection-end-line="59" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py_lightgbm/tree/data_partition.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1187" max-vertical-offset="1659">
+          <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/py_lightgbm/testes/test_py_lightgbm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5597484" vertical-offset="426" max-vertical-offset="1092">
-          <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
-          <folding />
+        <state vertical-scroll-proportion="0.7100115" vertical-offset="391" max-vertical-offset="1260">
+          <caret line="48" column="14" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
+          <folding>
+            <element signature="e#144#163#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

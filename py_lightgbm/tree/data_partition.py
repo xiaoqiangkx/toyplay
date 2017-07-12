@@ -36,6 +36,14 @@ class DataPartition(object):
         self._leaf_count[0] = self.num_data
         return
 
+    def __str__(self):
+        leaf_desc = "leaf_begin:{lb}\nleaf_count:{lc}\nindices:{ind}\n".format(
+            lb=self._leaf_begin,
+            lc=self._leaf_count,
+            ind=self._indices,
+        )
+        return leaf_desc
+
     def get_indices_of_leaf(self, leaf):
         begin = self._leaf_begin[leaf]
         cnt = self._leaf_count[leaf]

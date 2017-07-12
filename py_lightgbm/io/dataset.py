@@ -68,7 +68,7 @@ class Dataset(object):
         right_indices = []
 
         bin_mapper = self._bin_mappers[feature_index]
-        low_bound = 0
+        low_bound = -float("inf")
         if threshold_bin > 0:
             low_bound = bin_mapper.upper_at(threshold_bin - 1)
 
@@ -111,7 +111,7 @@ class Dataset(object):
 
     def construct_histograms(self, is_feature_used, data_indices, leaf_idx, gradients, hessians):
         if not data_indices:
-            return None
+            return []
 
         feature_histograms = []
         # 为每一个feature建立一个Bin数据,Bin数据用于之后的划分

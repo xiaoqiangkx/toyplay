@@ -13,13 +13,23 @@ from py_lightgbm.tree.split_info import SplitInfo
 from py_lightgbm.utils import const
 
 
-
 class FeatureEntryMeta(object):
     def __init__(self):
         self.sum_hessians = 0
         self.sum_gradients = 0
         self.cnt = 0
         return
+
+    def __str__(self):
+        repr_str = "cnt:{0}, h:{1}, g:{2}".format(
+            self.cnt,
+            self.sum_hessians,
+            self.sum_gradients,
+        )
+        return repr_str
+
+    def __repr__(self):
+        return self.__str__()
 
 
 class FeatureHistogram(object):
@@ -39,6 +49,13 @@ class FeatureHistogram(object):
 
         self._min_gain_split = 0.01     # TODO: set min_gain_split
         return
+
+    def __str__(self):
+        repr_str = "index:{0}, bin_mapper:{1}".format(self._feature_index, self._bin_mapper)
+        return repr_str
+
+    def __repr__(self):
+        return self.__str__()
 
     def init(self, train_X, data_indices, ordered_gradients, ordered_hessians):
         # build feature histogram
@@ -88,7 +105,7 @@ class FeatureHistogram(object):
                 best_left_count = left_count
                 best_threshold_bin = bin
 
-        split_info.best_threshold_bin = best_threshold_bin
+        split_info.threshold_bin = best_threshold_bin
         split_info.feature_index = self._feature_index
         split_info.gain = best_gain
 

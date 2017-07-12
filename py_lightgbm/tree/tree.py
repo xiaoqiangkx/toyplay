@@ -57,7 +57,7 @@ class Tree(object):
                 self.right_child[parent] = new_node_idx
 
         self.split_feature_index[new_node_idx] = split_info.feature_index
-        self.threshold_in_bin[new_node_idx] = split_info.threshold
+        self.threshold_in_bin[new_node_idx] = split_info.threshold_bin
         self.split_gain[new_node_idx] = split_info.gain
 
         self.left_child[new_node_idx] = -leaf - 1
@@ -81,9 +81,24 @@ class Tree(object):
         self.num_leaves += 1
         return self.num_leaves - 1
 
-
     def predict(self, feature_values):
 
+        return
+
+    def show(self):
+        print "start-------------------"
+        print "left_child", self.left_child
+        print "right_child", self.right_child
+        print "leaf_parent", self.leaf_parent
+        print "split_feature_index", self.split_feature_index
+        print "threshold_in_bin", self.threshold_in_bin
+        print "split_gain", self.split_gain
+        print "interval_values", self.internal_values
+        print "internal_counts", self.internal_counts
+        print "leaf_counts", self.leaf_counts
+        print "leaf_values", self.leaf_values
+        print "leaf_depth", self.leaf_depth
+        print "end----------------------"
         return
 
 
