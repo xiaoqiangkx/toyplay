@@ -88,7 +88,7 @@ class Tree(object):
 
     def predict(self, feature_values):
         # 根据当前的prediction对应到相应的子节点，根据子节点中数据的比例，得到相应的结果
-
+        
         return
 
     def show(self):
