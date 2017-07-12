@@ -76,6 +76,8 @@ class TreeLearner(object):
             self.log_split()
             left_leaf, right_leaf = self.split(new_tree, best_leaf)
             self.log_after_split()
+
+            cur_depth = max(cur_depth, new_tree.depth_of_leaf(left_leaf))
         return new_tree
 
     def get_max_gain(self):

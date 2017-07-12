@@ -81,6 +81,9 @@ class Tree(object):
         self.num_leaves += 1
         return self.num_leaves - 1
 
+    def depth_of_leaf(self, leaf):
+        return self.leaf_depth[leaf]
+
     def predict(self, feature_values):
 
         return
