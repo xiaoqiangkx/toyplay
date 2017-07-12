@@ -23,6 +23,7 @@ class Tree(object):
         self.right_child = [-1] * (self.max_leaves - 1)
         self.split_feature_index = [-1] * (self.max_leaves - 1)
         self.threshold_in_bin = [-1] * (self.max_leaves - 1)      # threshold in bin
+        self.threshold = [-1] * (self.max_leaves - 1)
         self.split_gain = [0] * (self.max_leaves - 1)
 
         self.internal_values = [0] * (self.max_leaves - 1)
@@ -58,6 +59,7 @@ class Tree(object):
 
         self.split_feature_index[new_node_idx] = split_info.feature_index
         self.threshold_in_bin[new_node_idx] = split_info.threshold_bin
+        self.threshold[new_node_idx] = split_info.threshold
         self.split_gain[new_node_idx] = split_info.gain
 
         self.left_child[new_node_idx] = -leaf - 1
@@ -86,7 +88,7 @@ class Tree(object):
 
     def predict(self, feature_values):
         # 根据当前的prediction对应到相应的子节点，根据子节点中数据的比例，得到相应的结果
-        
+
         return
 
     def show(self):
@@ -96,6 +98,7 @@ class Tree(object):
         print "leaf_parent", self.leaf_parent
         print "split_feature_index", self.split_feature_index
         print "threshold_in_bin", self.threshold_in_bin
+        print "threshold", self.threshold
         print "split_gain", self.split_gain
         print "interval_values", self.internal_values
         print "internal_counts", self.internal_counts
