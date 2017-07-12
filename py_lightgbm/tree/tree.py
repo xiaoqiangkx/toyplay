@@ -9,6 +9,7 @@
 @change_time:
 1.2017/7/2 15:56
 """
+import numpy as np
 
 
 class Tree(object):
@@ -88,8 +89,13 @@ class Tree(object):
 
     def predict(self, feature_values):
         # 根据当前的prediction对应到相应的子节点，根据子节点中数据的比例，得到相应的结果
-        
-        return
+        score = 0.0
+
+        # 遍历树对应到相应的节点, 根据self.split_feature_index和self.threshold来划分到他的左右子节点，直到其中的节点是负数，即叶子节点为止
+
+        current_node = 1        # 1号节点，使用
+
+        return score
 
     def show(self):
         print "start-------------------"
