@@ -14,7 +14,7 @@ import numpy as np
 
 class BinaryObjective(object):
     def __init__(self, labels):
-        self._sigmoid = 1.0
+        self._sigmoid = 2.0
         self._labels = labels
         return
 
@@ -30,6 +30,9 @@ class BinaryObjective(object):
             hessians[i] = abs_response * (self._sigmoid - abs_response)
 
         return gradients, hessians
+
+    def convert_output(self, value):
+        return 1.0 / (1.0 + np.exp(-self._sigmoid * value))
 
 
 if __name__ == '__main__':

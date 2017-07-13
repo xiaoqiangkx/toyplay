@@ -48,6 +48,10 @@ class Dataset(object):
         return
 
     @property
+    def train_X(self):
+        return self._train_X
+
+    @property
     def num_data(self):
         return self._num_data
 

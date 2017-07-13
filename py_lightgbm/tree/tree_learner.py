@@ -64,7 +64,7 @@ class TreeLearner(object):
 
         # 增加重要日志信息
         for split in xrange(self._num_leaves - 1):
-            print "current split num_leave:", split
+            # print "current split num_leave:", split
 
             if not self.before_find_best_leave(new_tree, left_leaf, right_leaf):    # 检查数据
                 break
@@ -79,6 +79,9 @@ class TreeLearner(object):
 
             cur_depth = max(cur_depth, new_tree.depth_of_leaf(left_leaf))
         return new_tree
+
+    def get_indices_of_leaf(self, idx):
+        return self._data_partition.get_indices_of_leaf(idx)
 
     def get_max_gain(self):
         best_leaf = None

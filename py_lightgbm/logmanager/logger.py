@@ -13,7 +13,7 @@
 import logging
 
 
-LOG_LEVEL = logging.INFO
+LOG_LEVEL = logging.DEBUG
 
 
 def get_logger(name):

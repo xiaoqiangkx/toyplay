@@ -11,6 +11,10 @@
 """
 from py_lightgbm.boosting import boosting
 from py_lightgbm.io.dataset import Dataset
+from py_lightgbm.logmanager import logger
+
+
+_LOGGER = logger.get_logger("LGBMClassifier")
 
 
 class LGBMClassifier(object):
@@ -50,7 +54,9 @@ class LGBMClassifier(object):
         self._boosting.init(self._train_data, num_leaves=self._num_leaves)
 
         for i in xrange(self._n_estimators):
-            self._boosting.train_one_iter(self._train_data)
+            print "iteration-------{0}".format(i + 1)
+            _LOGGER.info("iteration-------{0}".format(i + 1))
+            self._boosting.train_one_iter(self._train_data, self._learning_rate)
         return
 
     def show(self):
@@ -68,8 +74,10 @@ class LGBMClassifier(object):
         return
 
     def predict(self, X, raw_score=False, num_iteration=0):
-
         return
+
+    def predict_proba(self, X, raw_score=False, num_iteration=0):
+        return self._boosting.predict_proba(X)
 
     def score(self, X, y):
 

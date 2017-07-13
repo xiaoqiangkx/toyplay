@@ -43,6 +43,9 @@ class Tree(object):
         self.leaf_parent[0] = -1
         return
 
+    def output_of_leaf(self, leaf):
+        return self.leaf_values[leaf]
+
     def split(self, leaf, split_info):
         """
         :param best_leaf: the index of best leaf
@@ -87,13 +90,44 @@ class Tree(object):
     def depth_of_leaf(self, leaf):
         return self.leaf_depth[leaf]
 
+    def predict_prob(self, X):
+        num_data, num_feature = X.shape
+
+        predict_y = np.zeros((num_data,))
+
+        for num_idx in xrange(num_data):
+            predict_y[num_idx] = self.predict(X[num_idx, :])
+
+        return predict_y
+
     def predict(self, feature_values):
-        # 根据当前的prediction对应到相应的子节点，根据子节点中数据的比例，得到相应的结果
+        """
+            根据当前的prediction对应到相应的子节点，根据子节点中数据的比例，得到相应的结果
+            遍历树对应到相应的节点, 根据self.split_feature_index和self.threshold来划分到他的左右子节点，直到其中的节点是负数，即叶子节点为止
+        :return:
+        """
         score = 0.0
+        current_node = 0
 
-        # 遍历树对应到相应的节点, 根据self.split_feature_index和self.threshold来划分到他的左右子节点，直到其中的节点是负数，即叶子节点为止
+        while current_node >= 0:
+            left_child_node = self.left_child[current_node]
+            right_child_node = self.right_child[current_node]
 
-        current_node = 1        # 1号节点，使用
+            feature_index = self.split_feature_index[current_node]
+            if feature_index < 0:
+                break
+
+            feature_value = feature_values[feature_index]
+            threshold = self.threshold[current_node]
+
+            if feature_value <= threshold:
+                current_node = left_child_node
+            else:
+                current_node = right_child_node
+
+            if current_node < 0:
+                score = self.leaf_values[~current_node]
+                break
 
         return score
 

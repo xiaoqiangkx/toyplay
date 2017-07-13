@@ -11,6 +11,7 @@
 """
 from py_lightgbm.tree.tree_learner import TreeLearner
 from py_lightgbm.objective import BinaryObjective
+import numpy as np
 
 
 class Gbdt(object):
@@ -37,7 +38,7 @@ class Gbdt(object):
         self._object_function = BinaryObjective(self._train_data.labels)
         return
 
-    def train_one_iter(self, gradients=None, hessians=None):
+    def train_one_iter(self, train_data, learning_rate, gradients=None, hessians=None):
         """
         What's the value of gradient and hessian
         """
@@ -51,6 +52,20 @@ class Gbdt(object):
         tree_learner = TreeLearner(self._num_leaves, self._train_data)
         tree = tree_learner.train(gradients, hessians)
         self._tree_list.append(tree)
+
+        self._update_scores(tree, tree_learner, learning_rate)
+        return
+
+    def _update_scores(self, tree, tree_learner, learning_rate):
+        """
+        更新循环结束以后所有值的score
+        """
+        for i in xrange(self._num_leaves):
+            output = tree.output_of_leaf(i)
+
+            indices = tree_learner.get_indices_of_leaf(i)
+            for index in indices:
+                self._scores[index] += learning_rate * output
         return
 
     def _boosting(self):
@@ -59,6 +74,17 @@ class Gbdt(object):
 
         self._gradients, self._hessians = self._object_function.get_gradients(self._scores)
         return
+
+    def predict_proba(self, X):
+        """
+        predict result according to tree_list
+        """
+        result = np.zeros((X.shape[0], ))
+        for idx, tree in enumerate(self._tree_list):
+            predict_y = tree.predict_prob(X)
+            result += predict_y
+
+        return self._object_function.convert_output(result)
 
     def show(self):
         """
