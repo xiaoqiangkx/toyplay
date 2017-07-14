@@ -16,6 +16,7 @@ import py_lightgbm as lgb
 from sklearn import model_selection
 from collections import Counter
 import logging
+from sklearn import metrics
 logging.basicConfig()
 
 
@@ -33,7 +34,7 @@ def main():
     params = {
         'boosting_type': 'gbdt',
         'objective': 'binary',
-        'num_leaves': 20,
+        'num_leaves': 50,
         'max_depth': 10,
         'learning_rate': 0.1,
         # 'reg_lambda': 0.7,
@@ -44,12 +45,13 @@ def main():
     print('light GBM train :-)')
     clf = lgb.LGBMClassifier(**params)
     print "data_shape", X_train.shape, Counter(y_train)
+    print "y_test:", y_test
     clf.fit(X_train, y_train)
     # clf.show()
     y_predict = clf.predict_proba(X_test)
     print y_predict
-    # score = clf.score(X_test, y_test)
-    # print "score:", score
+    score = metrics.accuracy_score(y_test, y_predict)
+    print "score:", score
 
 
 if __name__ == '__main__':

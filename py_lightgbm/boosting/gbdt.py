@@ -84,7 +84,8 @@ class Gbdt(object):
             predict_y = tree.predict_prob(X)
             result += predict_y
 
-        return self._object_function.convert_output(result)
+        convert_result = self._object_function.convert_output(result)
+        return self._train_data.convert_labels(convert_result)
 
     def show(self):
         """

@@ -88,6 +88,13 @@ class Dataset(object):
 
         return left_indices, right_indices
 
+    def convert_labels(self, y, threshold=0.5):
+        result = np.zeros(y.shape)
+        for i in xrange(y.shape[0]):
+            value = 1 if y[i] >= threshold else -1
+            result[i] = self._label2real[value]
+        return result
+
     def create_label(self, y):
         labels = np.zeros(y.shape)
         self._init_score = np.zeros(y.shape)

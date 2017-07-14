@@ -148,10 +148,10 @@ class FeatureHistogram(object):
     def get_splitted_leaf_output(self, sum_gradient, sum_hessian, l1, l2):
         abs_sum_gradients = abs(sum_gradient)
         reg_abs_sum_gradients = max(0.0, abs_sum_gradients - l1)
-        if sum_hessian > 0:
-            return reg_abs_sum_gradients / (sum_hessian + l2)
-        else:
+        if sum_gradient > 0:
             return -reg_abs_sum_gradients / (sum_hessian + l2)
+        else:
+            return reg_abs_sum_gradients / (sum_hessian + l2)
 
     def find_best_threshold_sequence(self, sum_gradient, sum_hessian, num_data, min_gain_shift):
         pass
