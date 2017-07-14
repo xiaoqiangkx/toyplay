@@ -9,12 +9,17 @@
 @change_time:
 1.2017/7/1 11:26
 """
+
+import copy
+
+
 from py_lightgbm.tree.tree import Tree
 from py_lightgbm.tree.split_info import SplitInfo
 from py_lightgbm.tree.leaf_splits import LeafSplits
 from py_lightgbm.tree.data_partition import DataPartition
-import copy
+
 from py_lightgbm.logmanager import logger
+from py_lightgbm.utils import conf
 
 
 _LOGGER = logger.get_logger("TreeLearner")
@@ -233,10 +238,16 @@ class TreeLearner(object):
             )
         return left_leaf, right_leaf
 
+    def can_log(self):
+        return not conf.CONFIG_DEV
+
     def log_before_split(self):
         """
         记录分割前情况
         """
+        if not self.can_log():
+            return
+
         # 1. 数据划分情况
         _LOGGER.info("log_before_split---------------------------------------------")
         _LOGGER.info("_data_partition:{0}".format(self._data_partition))
@@ -256,6 +267,9 @@ class TreeLearner(object):
         """
         记录分割情况
         """
+        if not self.can_log():
+            return
+
         _LOGGER.info("log_split---------------------------------------------")
         # 2. 划分数据Histogram
         _LOGGER.info("smaller_leaf_split:{0}\nlarger_leaf_split{1}\n".format(
@@ -275,6 +289,9 @@ class TreeLearner(object):
         """
         记录分割后情况
         """
+        if not self.can_log():
+            return
+
         _LOGGER.info("log_after_split---------------------------------------------")
         _LOGGER.info("{0}".format(self._data_partition))
 
