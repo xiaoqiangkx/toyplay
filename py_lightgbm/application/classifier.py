@@ -54,7 +54,6 @@ class LGBMClassifier(object):
         self._boosting.init(self._train_data, num_leaves=self._num_leaves)
 
         for i in xrange(self._n_estimators):
-            print "iteration-------{0}".format(i + 1)
             _LOGGER.info("iteration-------{0}".format(i + 1))
             self._boosting.train_one_iter(self._train_data, self._learning_rate)
         return

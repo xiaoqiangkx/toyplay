@@ -10,3 +10,4 @@ data/mnist_train.csv
 *.txt
 *.doc
 match/fraud/creditcard.csv
+*.prof

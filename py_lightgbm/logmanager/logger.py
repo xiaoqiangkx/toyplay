@@ -13,9 +13,11 @@
 import logging
 
 
-LOG_LEVEL = logging.DEBUG
+LOG_LEVEL = logging.CRITICAL
+logging.basicConfig()
 
 
 def get_logger(name):
     logger = logging.getLogger(name)
+    logger.setLevel(LOG_LEVEL)
     return logger

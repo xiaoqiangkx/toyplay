@@ -4,15 +4,15 @@
     <list default="true" id="d46c789a-3f1f-49eb-8da0-a3620801f708" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/py_lightgbm/tree/leaf_splits.py" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/py_lightgbm/tree/data_partition.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py_lightgbm/io/dataset.py" afterPath="$PROJECT_DIR$/py_lightgbm/io/dataset.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py_lightgbm/tree/feature_histogram.py" afterPath="$PROJECT_DIR$/py_lightgbm/tree/feature_histogram.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py_lightgbm/io/bin.py" afterPath="$PROJECT_DIR$/py_lightgbm/io/bin.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/toyplay.iml" afterPath="$PROJECT_DIR$/.idea/toyplay.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py_lightgbm/io/dataset.py" afterPath="$PROJECT_DIR$/py_lightgbm/io/dataset.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py_lightgbm/tree/split_info.py" afterPath="$PROJECT_DIR$/py_lightgbm/tree/split_info.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py_lightgbm/tree/tree_learner.py" afterPath="$PROJECT_DIR$/py_lightgbm/tree/tree_learner.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py_lightgbm/tree/tree.py" afterPath="$PROJECT_DIR$/py_lightgbm/tree/tree.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py_lightgbm/tree/tree_learner.py" afterPath="$PROJECT_DIR$/py_lightgbm/tree/tree_learner.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py_lightgbm/tree/feature_histogram.py" afterPath="$PROJECT_DIR$/py_lightgbm/tree/feature_histogram.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/py_lightgbm/io/bin.py" afterPath="$PROJECT_DIR$/py_lightgbm/io/bin.py" />
     </list>
     <ignored path="toyplay.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,7 +28,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/toyplay$bin.coverage" NAME="bin Coverage Results" MODIFIED="1499861257211" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/py_lightgbm/io" />
     <SUITE FILE_PATH="coverage/toyplay$test_lightgbm.coverage" NAME="test_lightgbm Coverage Results" MODIFIED="1499998483916" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/py_lightgbm/testes" />
-    <SUITE FILE_PATH="coverage/toyplay$test_py_lightgbm.coverage" NAME="test_py_lightgbm Coverage Results" MODIFIED="1500001690093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/py_lightgbm/testes" />
+    <SUITE FILE_PATH="coverage/toyplay$test_py_lightgbm.coverage" NAME="test_py_lightgbm Coverage Results" MODIFIED="1500020437141" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/py_lightgbm/testes" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -42,23 +42,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="gbdt.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/py_lightgbm/boosting/gbdt.py">
+      <file leaf-file-name="tree_learner.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/py_lightgbm/tree/tree_learner.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="895" max-vertical-offset="2226">
-              <caret line="86" column="69" selection-start-line="86" selection-start-column="69" selection-end-line="86" selection-end-column="69" />
-              <folding>
-                <element signature="e#131#184#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="boosting.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/py_lightgbm/boosting/boosting.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="457" max-vertical-offset="966">
-              <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="756" max-vertical-offset="6027">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -67,8 +55,8 @@
       <file leaf-file-name="test_py_lightgbm.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/py_lightgbm/testes/test_py_lightgbm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.71709234" vertical-offset="475" max-vertical-offset="1344">
-              <caret line="40" column="26" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.63457763" vertical-offset="895" max-vertical-offset="1512">
+              <caret line="58" column="44" selection-start-line="58" selection-start-column="44" selection-end-line="58" selection-end-column="44" />
               <folding>
                 <element signature="e#144#163#0" expanded="true" />
               </folding>
@@ -76,31 +64,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tree.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/py_lightgbm/tree/tree.py">
+      <file leaf-file-name="logger.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/py_lightgbm/logmanager/logger.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="3339">
-              <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="588">
+              <caret line="15" column="28" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="feature_histogram.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/py_lightgbm/tree/feature_histogram.py">
+      <file leaf-file-name="classifier.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/py_lightgbm/application/classifier.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2772" max-vertical-offset="4221">
-              <caret line="153" column="19" selection-start-line="153" selection-start-column="19" selection-end-line="153" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dataset.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/py_lightgbm/io/dataset.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1826" max-vertical-offset="3297">
-              <caret line="109" column="25" selection-start-line="109" selection-start-column="12" selection-end-line="109" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="930" max-vertical-offset="1827">
+              <caret line="55" column="44" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -158,8 +136,6 @@
         <option value="$PROJECT_DIR$/py_lightgbm/tree/data_partition.py" />
         <option value="$PROJECT_DIR$/py_lightgbm/tree/split_info.py" />
         <option value="$PROJECT_DIR$/py_lightgbm/io/bin.py" />
-        <option value="$PROJECT_DIR$/py_lightgbm/logmanager/logger.py" />
-        <option value="$PROJECT_DIR$/py_lightgbm/application/classifier.py" />
         <option value="$PROJECT_DIR$/py_lightgbm/boosting/boosting.py" />
         <option value="$PROJECT_DIR$/py_lightgbm/tree/tree.py" />
         <option value="$PROJECT_DIR$/py_lightgbm/tree/tree_learner.py" />
@@ -167,6 +143,11 @@
         <option value="$PROJECT_DIR$/py_lightgbm/io/dataset.py" />
         <option value="$PROJECT_DIR$/py_lightgbm/tree/feature_histogram.py" />
         <option value="$PROJECT_DIR$/py_lightgbm/boosting/gbdt.py" />
+        <option value="$PROJECT_DIR$/profile.py" />
+        <option value="$PROJECT_DIR$/profile/profile.py" />
+        <option value="$PROJECT_DIR$/profile/__init__.py" />
+        <option value="$PROJECT_DIR$/py_lightgbm/application/classifier.py" />
+        <option value="$PROJECT_DIR$/py_lightgbm/logmanager/logger.py" />
         <option value="$PROJECT_DIR$/py_lightgbm/testes/test_py_lightgbm.py" />
       </list>
     </option>
@@ -203,6 +184,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -249,13 +231,44 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tree" />
+              <option name="myItemId" value="testes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="toyplay" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="toyplay" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="py_lightgbm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="logmanager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="toyplay" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="toyplay" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="profile" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -263,7 +276,7 @@
     <property name="last_opened_file_path" value="G:/ProgramData/Anaconda/python.exe" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="data&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/io/dataset.py&#10;obj&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/objective/objective_function.py&#10;bin&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/io/bin.py&#10;split&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/split_info.py&#10;tree&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/tree.py&#10;boo&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/boosting/boosting.py&#10;binar&#9;null&#9;null&#10;test&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/testes/test_py_lightgbm.py&#10;da&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/data_partition.py&#10;gbdt&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/boosting/gbdt.py&#10;featu&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/feature_histogram.py&#10;tree_le&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/tree_learner.py&#10;bo&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/boosting/boosting.py&#10;cla&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/application/classifier.py&#10;fea&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/feature_histogram.py&#10;spli&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/split_info.py&#10;sp&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/split_info.py&#10;datase&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/io/dataset.py&#10;spl&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/split_info.py&#10;BinMapper&#9;null&#9;null&#10;tree_&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/tree_learner.py&#10;tree_l&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/tree_learner.py&#10;boos&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/boosting/boosting.py&#10;bin.&#9;FILE&#9;file:///Users/coolman/workspace/ml/toyplay/py_lightgbm/io/bin.py&#10;binma&#9;null&#9;null&#10;LE&#9;FILE&#9;file:///Users/coolman/workspace/ml/toyplay/py_lightgbm/tree/leaf_splits.py&#10;leaf&#9;FILE&#9;file:///Users/coolman/workspace/ml/toyplay/py_lightgbm/tree/leaf_splits.py&#10;dataset&#9;FILE&#9;file:///Users/coolman/workspace/ml/toyplay/py_lightgbm/io/dataset.py&#10;DECI&#9;FILE&#9;file:///Users/coolman/workspace/ml/toyplay/algorithm/DecisionTree.py" />
+    <property name="SearchEverywhereHistoryKey" value="lo&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/logmanager/logger.py&#10;test&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/testes/test_py_lightgbm.py&#10;log&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/logmanager/logger.py&#10;obj&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/objective/objective_function.py&#10;fea&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/feature_histogram.py&#10;data&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/io/dataset.py&#10;bin&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/io/bin.py&#10;split&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/split_info.py&#10;tree&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/tree.py&#10;boo&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/boosting/boosting.py&#10;binar&#9;null&#9;null&#10;da&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/data_partition.py&#10;gbdt&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/boosting/gbdt.py&#10;featu&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/feature_histogram.py&#10;tree_le&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/tree_learner.py&#10;bo&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/boosting/boosting.py&#10;cla&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/application/classifier.py&#10;spli&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/split_info.py&#10;sp&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/split_info.py&#10;datase&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/io/dataset.py&#10;spl&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/split_info.py&#10;BinMapper&#9;null&#9;null&#10;tree_&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/tree_learner.py&#10;tree_l&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/tree/tree_learner.py&#10;boos&#9;FILE&#9;file://G:/code/toyplay/py_lightgbm/boosting/boosting.py&#10;bin.&#9;FILE&#9;file:///Users/coolman/workspace/ml/toyplay/py_lightgbm/io/bin.py&#10;binma&#9;null&#9;null&#10;LE&#9;FILE&#9;file:///Users/coolman/workspace/ml/toyplay/py_lightgbm/tree/leaf_splits.py&#10;leaf&#9;FILE&#9;file:///Users/coolman/workspace/ml/toyplay/py_lightgbm/tree/leaf_splits.py&#10;dataset&#9;FILE&#9;file:///Users/coolman/workspace/ml/toyplay/py_lightgbm/io/dataset.py&#10;DECI&#9;FILE&#9;file:///Users/coolman/workspace/ml/toyplay/algorithm/DecisionTree.py" />
     <property name="recentsLimit" value="5" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="options.lastSelected" value="preferences.sourceCode.Python" />
@@ -673,7 +686,7 @@
       <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40089086" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1401919" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14179105" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35634744" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14658849" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -707,7 +720,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="10" />
+      <option name="time" value="11" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -722,20 +735,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/py_lightgbm/tree/tree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="54" column="40" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py_lightgbm/tree/split_info.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/py_lightgbm/testes/test_py_lightgbm.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
@@ -813,13 +812,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="29" column="37" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/logger.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="22" column="28" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -969,23 +961,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/py_lightgbm/logmanager/logger.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36248562" vertical-offset="0" max-vertical-offset="869">
-          <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py_lightgbm/application/classifier.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22669736" vertical-offset="1021" max-vertical-offset="1890">
-          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding>
-            <element signature="e#137#178#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/py_lightgbm/tree/data_partition.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3521289" vertical-offset="660" max-vertical-offset="1659">
@@ -993,18 +968,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/py_lightgbm/tree/tree_learner.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24165708" vertical-offset="1197" max-vertical-offset="6027">
-          <caret line="72" column="35" selection-start-line="72" selection-start-column="35" selection-end-line="72" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/py_lightgbm/tree/split_info.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.18411967" vertical-offset="664" max-vertical-offset="1533">
           <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1012,7 +979,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334" vertical-offset="1302" max-vertical-offset="3465">
           <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1028,45 +994,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.9574223" vertical-offset="2197" max-vertical-offset="3066">
           <caret line="65" column="42" selection-start-line="65" selection-start-column="42" selection-end-line="65" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py_lightgbm/objective/objective_function.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6375144" vertical-offset="160" max-vertical-offset="1029">
-          <caret line="34" column="59" selection-start-line="34" selection-start-column="59" selection-end-line="34" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py_lightgbm/io/dataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1826" max-vertical-offset="3297">
-          <caret line="109" column="25" selection-start-line="109" selection-start-column="12" selection-end-line="109" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py_lightgbm/tree/tree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="656" max-vertical-offset="3339">
-          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py_lightgbm/tree/feature_histogram.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2772" max-vertical-offset="4221">
-          <caret line="153" column="19" selection-start-line="153" selection-start-column="19" selection-end-line="153" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/py_lightgbm/boosting/boosting.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="966">
+        <state vertical-scroll-proportion="0.10586882" vertical-offset="97" max-vertical-offset="966">
           <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
           <folding />
         </state>
@@ -1074,18 +1007,96 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/py_lightgbm/boosting/gbdt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1462" max-vertical-offset="2226">
+        <state vertical-scroll-proportion="1.0483314" vertical-offset="895" max-vertical-offset="2226">
           <caret line="86" column="69" selection-start-line="86" selection-start-column="69" selection-end-line="86" selection-end-column="69" />
           <folding>
-            <element signature="e#131#184#0" expanded="true" />
+            <element signature="e#131#184#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py_lightgbm/tree/tree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7733027" vertical-offset="315" max-vertical-offset="3339">
+          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py_lightgbm/io/dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43613347" vertical-offset="1826" max-vertical-offset="3297">
+          <caret line="109" column="25" selection-start-line="109" selection-start-column="12" selection-end-line="109" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py_lightgbm/tree/feature_histogram.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43498275" vertical-offset="2772" max-vertical-offset="4221">
+          <caret line="151" column="62" selection-start-line="151" selection-start-column="62" selection-end-line="151" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py_lightgbm/objective/objective_function.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27502877" vertical-offset="160" max-vertical-offset="1029">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41257367" vertical-offset="0" max-vertical-offset="509">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile/profile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="693">
+          <caret line="0" column="21" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/logger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46448088" vertical-offset="207" max-vertical-offset="882">
+          <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py_lightgbm/application/classifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="930" max-vertical-offset="1827">
+          <caret line="55" column="44" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py_lightgbm/logmanager/logger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="588">
+          <caret line="15" column="28" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py_lightgbm/tree/tree_learner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6027">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/py_lightgbm/testes/test_py_lightgbm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.71709234" vertical-offset="475" max-vertical-offset="1344">
-          <caret line="40" column="26" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.63457763" vertical-offset="895" max-vertical-offset="1512">
+          <caret line="58" column="44" selection-start-line="58" selection-start-column="44" selection-end-line="58" selection-end-column="44" />
           <folding>
             <element signature="e#144#163#0" expanded="true" />
           </folding>

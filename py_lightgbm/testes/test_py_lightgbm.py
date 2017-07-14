@@ -11,16 +11,17 @@
 """
 
 import pandas as pd
-import numpy as np
 import py_lightgbm as lgb
 from sklearn import model_selection
 from collections import Counter
-import logging
 from sklearn import metrics
-logging.basicConfig()
-
+import profile
+import time
+from py_lightgbm.logmanager import logger
 
 DATA_PATH = "../../data/mnist_train.csv"
+
+_LOGGER = logger.get_logger("Test")
 
 
 def main():
@@ -38,20 +39,27 @@ def main():
         'max_depth': 10,
         'learning_rate': 0.1,
         # 'reg_lambda': 0.7,
-        'n_estimators': 10,
+        'n_estimators': 1,
         # 'silent': True
     }
 
-    print('light GBM train :-)')
+    _LOGGER.critical('light GBM train :-)')
     clf = lgb.LGBMClassifier(**params)
-    print "data_shape", X_train.shape, Counter(y_train)
-    print "y_test:", y_test
+    _LOGGER.info("data_shape: {0}, {1}".format(X_train.shape, Counter(y_train)))
+    _LOGGER.info("y_test:{0}".format(y_test))
+
+    profile.enable_profile()
+    timestamp_start = time.time()
+    _LOGGER.critical("starting profile")
     clf.fit(X_train, y_train)
     # clf.show()
     y_predict = clf.predict_proba(X_test)
-    print y_predict
+    _LOGGER.info(y_predict)
     score = metrics.accuracy_score(y_test, y_predict)
-    print "score:", score
+    _LOGGER.critical("score:{0}".format(score))
+    profile.close_profile()
+    timestamp_end = time.time()
+    _LOGGER.critical("finish profile:{0}".format(timestamp_end - timestamp_start))
 
 
 if __name__ == '__main__':
