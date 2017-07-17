@@ -7,11 +7,12 @@
 @file: classifier.py
 @time: 2017/7/9 12:03
 @change_time:
-1.2017/7/9 12:03
+1.2017/7/9 12:03 add category support
 """
 from py_lightgbm.boosting import boosting
 from py_lightgbm.io.dataset import Dataset
 from py_lightgbm.logmanager import logger
+from py_lightgbm.utils import const
 
 
 _LOGGER = logger.get_logger("LGBMClassifier")
@@ -20,7 +21,7 @@ _LOGGER = logger.get_logger("LGBMClassifier")
 class LGBMClassifier(object):
 
     def __init__(self, boosting_type='gbdt', num_leaves=31, max_depth=-1,
-                 learning_rate=0.1, n_estimators=10, max_bin=255,
+                 learning_rate=0.1, n_estimators=10, max_bin=const.DEFAULT_MAX_BIN,
                  subsample_for_bin=50000, objective=None, min_split_gain=0,
                  min_child_weight=5, min_child_samples=10, subsample=1, subsample_freq=1,
                  colsample_bytree=1, reg_alpha=0, reg_lambda=0,
@@ -42,20 +43,21 @@ class LGBMClassifier(object):
         self._min_child_samples = min_child_samples
 
         self._bin_mappers = None
+        self._categorical_feature = []
         return
 
     def fit(self, X, y, sample_weight=None, init_score=None,
             group=None, eval_set=None, eval_names=None, eval_sample_weight=None,
             eval_init_score=None, eval_group=None, eval_metric=None, early_stopping_rounds=None,
-            verbose=True, feature_name='auto', categorical_feature='auto', callbacks=None):
-        self._train_data = Dataset(X, y, feature_name)
+            verbose=True, feature_name=None, categorical_feature=None, callbacks=None):
+        self._train_data = Dataset(X, y, feature_name, categorical_feature)
         self._bin_mappers = self._train_data.create_bin_mapper(self._max_bin)
         self._train_data.construct(self._bin_mappers)
-        self._boosting.init(self._train_data, num_leaves=self._num_leaves)
+        self._boosting.init(self._train_data, num_leaves=self._num_leaves, learning_rate=self._learning_rate)
 
         for i in xrange(self._n_estimators):
             _LOGGER.info("iteration-------{0}".format(i + 1))
-            self._boosting.train_one_iter(self._train_data, self._learning_rate)
+            self._boosting.train_one_iter(self._train_data)
         return
 
     def show(self):

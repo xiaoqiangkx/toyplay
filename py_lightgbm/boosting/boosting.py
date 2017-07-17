@@ -20,12 +20,12 @@ class Booster(object):
         self._booster = Gbdt()
         return
 
-    def init(self, train_data, num_leaves):
-        self._booster.init(train_data, num_leaves)
+    def init(self, train_data, num_leaves, learning_rate):
+        self._booster.init(train_data, num_leaves, learning_rate)
         return
 
-    def train_one_iter(self, train_data, learning_rate, gradients=None, hessians=None):
-        self._booster.train_one_iter(train_data, learning_rate)
+    def train_one_iter(self, train_data, gradients=None, hessians=None):
+        self._booster.train_one_iter(train_data)
         return
 
     def show(self):

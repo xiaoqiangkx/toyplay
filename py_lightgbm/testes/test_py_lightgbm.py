@@ -25,7 +25,7 @@ _LOGGER = logger.get_logger("Test")
 
 
 def main():
-    mnist_train = pd.read_csv(DATA_PATH, nrows=1000)
+    mnist_train = pd.read_csv(DATA_PATH, nrows=1000)            # train data with 1000 rows, it cost 6ms
     X = mnist_train[(mnist_train.label == 6) | (mnist_train.label == 8)]
     y = X['label'].values
     X = X.drop('label', axis=1).values
@@ -45,13 +45,13 @@ def main():
 
     _LOGGER.critical('light GBM train :-)')
     clf = lgb.LGBMClassifier(**params)
-    _LOGGER.info("data_shape: {0}, {1}".format(X_train.shape, Counter(y_train)))
+    _LOGGER.critical("data_shape: {0}, {1}".format(X_train.shape, Counter(y_train)))
     _LOGGER.info("y_test:{0}".format(y_test))
 
     profile.enable_profile()
     timestamp_start = time.time()
     _LOGGER.critical("starting profile")
-    clf.fit(X_train, y_train)
+    clf.fit(X_train, y_train, categorical_feature=range(X_train.shape[1]))
     # clf.show()
     y_predict = clf.predict_proba(X_test)
     _LOGGER.info(y_predict)

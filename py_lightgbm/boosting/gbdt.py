@@ -12,6 +12,7 @@
 from py_lightgbm.tree.tree_learner import TreeLearner
 from py_lightgbm.objective import BinaryObjective
 import numpy as np
+from py_lightgbm.utils import const
 
 
 class Gbdt(object):
@@ -24,6 +25,7 @@ class Gbdt(object):
 
         self._scores = None
         self._num_leaves = 0
+        self._learning_rate = const.DEFAULT_LEARNING_RATE
 
         self._models = []
         self._coefs = []
@@ -31,14 +33,15 @@ class Gbdt(object):
         self._tree_coef = []        # 记录所有的因子
         return
 
-    def init(self, train_data, num_leaves):
+    def init(self, train_data, num_leaves, learning_rate=const.DEFAULT_LEARNING_RATE):
         self._train_data = train_data
         self._scores = train_data.init_score
         self._num_leaves = num_leaves
+        self._learning_rate = learning_rate
         self._object_function = BinaryObjective(self._train_data.labels)
         return
 
-    def train_one_iter(self, train_data, learning_rate, gradients=None, hessians=None):
+    def train_one_iter(self, train_data, gradients=None, hessians=None):
         """
         What's the value of gradient and hessian
         """
@@ -53,10 +56,10 @@ class Gbdt(object):
         tree = tree_learner.train(gradients, hessians)
         self._tree_list.append(tree)
 
-        self._update_scores(tree, tree_learner, learning_rate)
+        self._update_scores(tree, tree_learner)
         return
 
-    def _update_scores(self, tree, tree_learner, learning_rate):
+    def _update_scores(self, tree, tree_learner):
         """
         更新循环结束以后所有值的score
         """
@@ -65,7 +68,7 @@ class Gbdt(object):
 
             indices = tree_learner.get_indices_of_leaf(i)
             for index in indices:
-                self._scores[index] += learning_rate * output
+                self._scores[index] += self._learning_rate * output
         return
 
     def _boosting(self):

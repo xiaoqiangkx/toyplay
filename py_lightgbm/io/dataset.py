@@ -11,6 +11,7 @@
 """
 from py_lightgbm.io.bin import BinMapper
 from py_lightgbm.tree.feature_histogram import FeatureHistogram
+from py_lightgbm.utils import const
 from collections import Counter
 
 import numpy as np
@@ -33,9 +34,10 @@ class Dataset(object):
     """
     The main class of dataset
     """
-    def __init__(self, X, y, feature_name):
+    def __init__(self, X, y, feature_name, categorical_feature):
         self._train_X = X
-        self._feature_names = feature_name
+        self._feature_names = feature_name if feature_name else []
+        self._categorical_feature = categorical_feature if categorical_feature else []
         self._num_data = self._train_X.shape[0]
         self._num_features = self._train_X.shape[1]
 
@@ -146,7 +148,8 @@ class Dataset(object):
         for i in xrange(self._num_features):
             bin_mapper = BinMapper()
             values = self._train_X[:, i]
-            bin_mapper.find_bin(values, max_bin, min_data_in_bin=MIN_DATA_IN_BIN)
+            bin_type = const.TYPE_CATEGORY if i in self._categorical_feature else const.TYPE_NUMERICAL
+            bin_mapper.find_bin(values, max_bin, min_data_in_bin=MIN_DATA_IN_BIN, bin_type=bin_type)
             bin_mappers.append(bin_mapper)
         return bin_mappers
 

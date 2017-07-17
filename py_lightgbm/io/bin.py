@@ -10,10 +10,9 @@
 1.2017/7/8 11:58
 """
 from collections import Counter
+from py_lightgbm.utils import const
 
-
-TYPE_CATEGORY = 1
-TYPE_NUMERICAL = 2
+import math
 
 
 class HistogramBinEntry(object):
@@ -38,7 +37,7 @@ class BinMapper(object):
         self._num_bins = 0              # number of bins
         self._bin_upper_bound = []
 
-        self._bin_type = TYPE_NUMERICAL
+        self._bin_type = const.TYPE_NUMERICAL
 
         self._category2bin = {}         # int to unsigned int
         self._bin2category = {}
@@ -72,14 +71,30 @@ class BinMapper(object):
 
         return self._bin_upper_bound[index - 1]
 
-    def find_bin(self, values, max_bin, bin_type=TYPE_NUMERICAL, min_data_in_bin=0, min_split_data=0):
+    def find_bin(self, values, max_bin, bin_type=const.TYPE_NUMERICAL, min_data_in_bin=0, min_split_data=0):
         """
         Construct feature values to binMapper
         """
-        distinct_values = sorted(list(set(values)))     # set操作会默认进行排序操作
-        self._min_value = distinct_values[0]
-        self._max_value = distinct_values[-1]
-        counts = Counter(values)
+        self._bin_type = bin_type
+
+        if bin_type is const.TYPE_NUMERICAL:
+            distinct_values = sorted(list(set(values)))     # set操作会默认进行排序操作
+            self._min_value = distinct_values[0]
+            self._max_value = distinct_values[-1]
+            counts = Counter(values)
+        else:    # TYPE_NUMERICAL, fill category2bin and bin2category
+            category_counts = Counter(values)
+            bin_num = 1
+            counts = {}
+            max_bin = min(max_bin, int(math.ceil(len(category_counts) * 0.98)))
+
+            for key, cnt in category_counts.most_common(max_bin):
+                self._category2bin[key] = bin_num
+                self._bin2category[bin_num] = key
+                counts[bin_num] = cnt
+                bin_num += 1
+
+            distinct_values = self._category2bin.values()
 
         self._bin_upper_bound = self.greedy_find_bin(
             distinct_values, counts, max_bin,
@@ -112,6 +127,9 @@ class BinMapper(object):
 
     def find_bin_idx(self, value):
         # find the bin for value, use bi_search
+        if self._bin_type is const.TYPE_CATEGORY:
+            value = self._category2bin.get(value, float("inf"))
+
         st = 0
         data = self._bin_upper_bound
         ed = len(data) - 1
