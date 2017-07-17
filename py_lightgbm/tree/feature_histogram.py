@@ -48,6 +48,8 @@ class FeatureHistogram(object):
         self._bin_entry = [FeatureEntryMeta() for x in xrange(len(self._bin_mapper))]
 
         self._min_gain_split = 0.01     # TODO: set min_gain_split
+
+        self._tree_config = None
         return
 
     def __str__(self):
@@ -57,7 +59,7 @@ class FeatureHistogram(object):
     def __repr__(self):
         return self.__str__()
 
-    def init(self, train_X, data_indices, ordered_gradients, ordered_hessians):
+    def init(self, train_X, data_indices, ordered_gradients, ordered_hessians, tree_config):
         # build feature histogram
         for data_index in data_indices:
             value = train_X[data_index, self._feature_index]
@@ -68,6 +70,8 @@ class FeatureHistogram(object):
             self._bin_entry[bin].sum_gradients += ordered_gradients[data_index]
             self._bin_entry[bin].sum_hessians += ordered_hessians[data_index]
             self._bin_entry[bin].cnt += 1
+
+        self._tree_config = tree_config
         return
 
     def __sub__(self, other):
@@ -79,7 +83,6 @@ class FeatureHistogram(object):
 
         best_sum_left_gradients = 0
         best_sum_left_hessians = const.Epsion
-        best_gain = 0
         best_left_count = 0
         best_threshold_bin = 0
         best_threshold = float("inf")
@@ -87,6 +90,10 @@ class FeatureHistogram(object):
         sum_left_gradients = 0
         sum_left_hessians = const.Epsion
         left_count = 0
+
+        min_gain_shift = self._tree_config.min_split_gain + self.get_leaf_split_gain(sum_left_gradients, sum_left_hessians, self._tree_config.reg_alpha, self._tree_config.reg_lambda) +\
+                self.get_leaf_split_gain(sum_gradient, sum_hessian, self._tree_config.reg_alpha, self._tree_config.reg_lambda)
+        best_gain = min_gain_shift
 
         for bin in xrange(len(self._bin_entry)):
             sum_left_gradients += self._bin_entry[bin].sum_gradients
@@ -96,10 +103,10 @@ class FeatureHistogram(object):
             sum_right_gradients = sum_gradient - sum_left_gradients
             sum_right_hessians = sum_hessian - sum_left_hessians
 
-            current_gain = self.get_leaf_split_gain(sum_left_gradients, sum_left_hessians, 1, 1) +\
-                self.get_leaf_split_gain(sum_right_gradients, sum_right_hessians, 1, 1)
+            current_gain = self.get_leaf_split_gain(sum_left_gradients, sum_left_hessians, self._tree_config.reg_alpha, self._tree_config.reg_lambda) +\
+                self.get_leaf_split_gain(sum_right_gradients, sum_right_hessians, self._tree_config.reg_alpha, self._tree_config.reg_lambda)
 
-            if current_gain > best_gain:
+            if current_gain > best_gain and left_count > self._tree_config.min_child_samples:
                 best_sum_left_gradients = sum_left_gradients
                 best_sum_left_hessians = sum_left_hessians
                 best_gain = current_gain
@@ -123,13 +130,14 @@ class FeatureHistogram(object):
         split_info.left_output = self.get_splitted_leaf_output(
             best_sum_left_gradients,
             best_sum_left_hessians,
-            1,
-            1)
+            self._tree_config.reg_alpha,
+            self._tree_config.reg_lambda
+        )
         split_info.right_output = self.get_splitted_leaf_output(
             sum_gradient - best_sum_left_gradients,
             sum_hessian - best_sum_left_hessians,
-            1,
-            1,
+            self._tree_config.reg_alpha,
+            self._tree_config.reg_lambda,
         )
 
         return split_info

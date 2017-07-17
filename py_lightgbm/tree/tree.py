@@ -43,6 +43,9 @@ class Tree(object):
         self.leaf_parent[0] = -1
         return
 
+    def counts_of_leaf(self, leaf):
+        return self.leaf_counts[leaf]
+
     def output_of_leaf(self, leaf):
         return self.leaf_values[leaf]
 

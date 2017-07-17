@@ -17,6 +17,7 @@ from py_lightgbm.tree.tree import Tree
 from py_lightgbm.tree.split_info import SplitInfo
 from py_lightgbm.tree.leaf_splits import LeafSplits
 from py_lightgbm.tree.data_partition import DataPartition
+from py_lightgbm.utils import const
 
 from py_lightgbm.logmanager import logger
 from py_lightgbm.utils import conf
@@ -26,14 +27,15 @@ _LOGGER = logger.get_logger("TreeLearner")
 
 
 class TreeLearner(object):
-    def __init__(self, num_leaves, train_data):
+    def __init__(self, tree_config, train_data):
         self._gradients = None
         self._hessians = None
         self._tree_config = None        # TODO: 用于管理tree config文件
         self._histogram_pool = None
         self._train_data = train_data
         self._max_cache_size = None
-        self._num_leaves = num_leaves
+        self._tree_config = tree_config
+        self._num_leaves = tree_config.num_leaves
         self._num_features = self._train_data.num_features
         self._num_data = self._train_data.num_data
 
@@ -71,13 +73,14 @@ class TreeLearner(object):
         for split in xrange(self._num_leaves - 1):
             # print "current split num_leave:", split
 
-            if not self.before_find_best_leave(new_tree, left_leaf, right_leaf):    # 检查数据
-                break
-
-            self.log_before_split()
-            self.find_best_splits()
+            if self.before_find_best_leave(new_tree, left_leaf, right_leaf):    # 检查数据
+                self.log_before_split()
+                self.find_best_splits()
 
             best_leaf = self.get_max_gain()
+            if best_leaf is None:
+                break
+
             self.log_split()
             left_leaf, right_leaf = self.split(new_tree, best_leaf)
             self.log_after_split()
@@ -169,7 +172,6 @@ class TreeLearner(object):
                 )
 
                 if larger_split.gain > larger_best.gain:
-                    # print "larger_split:", larger_split.gain, larger_best.gain
                     larger_best = copy.deepcopy(larger_split)
 
         if self._smaller_leaf_split.leaf_index >= 0:
@@ -182,11 +184,24 @@ class TreeLearner(object):
         return
 
     def before_find_best_leave(self, new_tree, left_leaf, right_leaf):
-        # TODO: max_depth
+        # max_depth
+        if new_tree.depth_of_leaf(left_leaf) >= self._tree_config.max_depth:
+            self._best_split_per_leaf[left_leaf].gain = const.MIN_SCORE
+            if right_leaf >= 0:
+                self._best_split_per_leaf[right_leaf].gain = const.MIN_SCORE
 
-        # TODO: min_data_in_leaf
+            return False
+
+        # min_child_samples
+        if self._data_partition.counts_of_leaf(left_leaf) < self._tree_config.min_child_samples:
+            self._best_split_per_leaf[left_leaf].gain = const.MIN_SCORE
+            if right_leaf >= 0:
+                self._best_split_per_leaf[right_leaf].gain = const.MIN_SCORE
+
+            return False
 
         # TODO: histogram pool
+
         return True
 
     def split(self, new_tree, best_leaf):

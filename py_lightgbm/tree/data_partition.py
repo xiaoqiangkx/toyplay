@@ -44,6 +44,9 @@ class DataPartition(object):
         )
         return leaf_desc
 
+    def counts_of_leaf(self, leaf):
+        return self._leaf_count[leaf]
+
     def get_indices_of_leaf(self, leaf):
         begin = self._leaf_begin[leaf]
         cnt = self._leaf_count[leaf]

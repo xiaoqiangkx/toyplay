@@ -24,8 +24,7 @@ class Gbdt(object):
         self._hessians = None
 
         self._scores = None
-        self._num_leaves = 0
-        self._learning_rate = const.DEFAULT_LEARNING_RATE
+        self._tree_config = None
 
         self._models = []
         self._coefs = []
@@ -33,11 +32,10 @@ class Gbdt(object):
         self._tree_coef = []        # 记录所有的因子
         return
 
-    def init(self, train_data, num_leaves, learning_rate=const.DEFAULT_LEARNING_RATE):
+    def init(self, train_data, tree_config):
         self._train_data = train_data
         self._scores = train_data.init_score
-        self._num_leaves = num_leaves
-        self._learning_rate = learning_rate
+        self._tree_config = tree_config
         self._object_function = BinaryObjective(self._train_data.labels)
         return
 
@@ -52,7 +50,7 @@ class Gbdt(object):
             hessians = self._hessians
 
         # only use one tree in one iterations
-        tree_learner = TreeLearner(self._num_leaves, self._train_data)
+        tree_learner = TreeLearner(self._tree_config, self._train_data)
         tree = tree_learner.train(gradients, hessians)
         self._tree_list.append(tree)
 
@@ -63,12 +61,12 @@ class Gbdt(object):
         """
         更新循环结束以后所有值的score
         """
-        for i in xrange(self._num_leaves):
+        for i in xrange(self._tree_config.num_leaves):
             output = tree.output_of_leaf(i)
 
             indices = tree_learner.get_indices_of_leaf(i)
             for index in indices:
-                self._scores[index] += self._learning_rate * output
+                self._scores[index] += self._tree_config.learning_rate * output
         return
 
     def _boosting(self):

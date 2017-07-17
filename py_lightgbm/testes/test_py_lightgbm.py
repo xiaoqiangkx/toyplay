@@ -38,8 +38,10 @@ def main():
         'num_leaves': 50,
         'max_depth': 10,
         'learning_rate': 0.1,
-        # 'reg_lambda': 0.7,
+        'reg_lambda': 1.0,
+        'reg_alpha': 1.0,
         'n_estimators': 1,
+        # 'min_child_samples': 10,
         # 'silent': True
     }
 
@@ -51,7 +53,8 @@ def main():
     profile.enable_profile()
     timestamp_start = time.time()
     _LOGGER.critical("starting profile")
-    clf.fit(X_train, y_train, categorical_feature=range(X_train.shape[1]))
+    clf.fit(X_train, y_train)
+    # clf.fit(X_train, y_train, categorical_feature=range(X_train.shape[1]))
     # clf.show()
     y_predict = clf.predict_proba(X_test)
     _LOGGER.info(y_predict)

@@ -13,6 +13,7 @@ from py_lightgbm.boosting import boosting
 from py_lightgbm.io.dataset import Dataset
 from py_lightgbm.logmanager import logger
 from py_lightgbm.utils import const
+from py_lightgbm.config.tree_config import TreeConfig
 
 
 _LOGGER = logger.get_logger("LGBMClassifier")
@@ -30,17 +31,21 @@ class LGBMClassifier(object):
         self._boosting_type = boosting_type     # 仅支持gdbt
         self._boosting = boosting.Booster()
         self._train_data = None
-
-        self._num_leaves = num_leaves
-        self._max_depth = max_depth
-        self._learning_rate = learning_rate
-        self._n_estimators = n_estimators
-        self._max_bin = max_bin
-        self._min_split_gain = min_split_gain
-        self._reg_alpha = reg_alpha
-        self._reg_lambda = reg_lambda
         self._silent = silent
+
+        self._tree_config = TreeConfig()
+        self._tree_config.learning_rate = learning_rate
+        self._tree_config.n_estimators = n_estimators
+
+        self._tree_config.max_bin = max_bin
+        self._tree_config.num_leaves = num_leaves
+        self._tree_config.max_depth = max_depth
+
         self._min_child_samples = min_child_samples
+        self._tree_config.min_split_gain = min_split_gain
+
+        self._tree_config.reg_alpha = reg_alpha
+        self._tree_config.reg_lambda = reg_lambda
 
         self._bin_mappers = None
         self._categorical_feature = []
@@ -50,12 +55,12 @@ class LGBMClassifier(object):
             group=None, eval_set=None, eval_names=None, eval_sample_weight=None,
             eval_init_score=None, eval_group=None, eval_metric=None, early_stopping_rounds=None,
             verbose=True, feature_name=None, categorical_feature=None, callbacks=None):
-        self._train_data = Dataset(X, y, feature_name, categorical_feature)
-        self._bin_mappers = self._train_data.create_bin_mapper(self._max_bin)
+        self._train_data = Dataset(X, y, feature_name, categorical_feature, self._tree_config)
+        self._bin_mappers = self._train_data.create_bin_mapper(self._tree_config.max_bin)
         self._train_data.construct(self._bin_mappers)
-        self._boosting.init(self._train_data, num_leaves=self._num_leaves, learning_rate=self._learning_rate)
+        self._boosting.init(self._train_data, self._tree_config)
 
-        for i in xrange(self._n_estimators):
+        for i in xrange(self._tree_config.n_estimators):
             _LOGGER.info("iteration-------{0}".format(i + 1))
             self._boosting.train_one_iter(self._train_data)
         return

@@ -34,7 +34,7 @@ class Dataset(object):
     """
     The main class of dataset
     """
-    def __init__(self, X, y, feature_name, categorical_feature):
+    def __init__(self, X, y, feature_name, categorical_feature, tree_config):
         self._train_X = X
         self._feature_names = feature_name if feature_name else []
         self._categorical_feature = categorical_feature if categorical_feature else []
@@ -46,6 +46,7 @@ class Dataset(object):
         self._real2label = {}
         self._init_score = None
         self._bin_mappers = None
+        self._tree_config = tree_config
         self.create_label(y)
         return
 
@@ -130,7 +131,7 @@ class Dataset(object):
         # 为每一个feature建立一个Bin数据,Bin数据用于之后的划分
         for feature_index in xrange(self._num_features):
             feature_histogram = FeatureHistogram(feature_index, self._bin_mappers[feature_index])
-            feature_histogram.init(self._train_X, data_indices, gradients, hessians)
+            feature_histogram.init(self._train_X, data_indices, gradients, hessians, self._tree_config)
             feature_histograms.append(feature_histogram)
 
         return feature_histograms
