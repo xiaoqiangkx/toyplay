@@ -11,5 +11,19 @@
 1.2017/7/14 07:16
 """
 
-if __name__ == '__main__':
-    pass
+RANDOM_STATE = 42
+
+SAMPLE_TRAIN_PATH = "data/sample_train.csv"
+
+TRAIN_ORDERS_PATH = "../../data/instacart/order_products__train.csv"
+
+AISLES_PATH = "../../data/instacart/aisles.csv"
+
+DEPARTMENTS = "../../data/instacart/departments.csv"
+
+PRIOR_ORDERS_PATH = "../../data/instacart/order_products__prior.csv"
+
+ORDERS_PATH = "../../data/instacart/orders.csv"
+
+PRODUCTS_PATH = "../../data/instacart/products.csv"
+
