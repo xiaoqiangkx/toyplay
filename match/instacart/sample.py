@@ -38,6 +38,10 @@ def sample_train(from_path, sample_path, key, percentage=0.1):
     return
 
 
+def read_sample_train(from_path):
+    return pd.read_csv(from_path)
+
+
 if __name__ == '__main__':
     raw_train_orders_path = const.TRAIN_ORDERS_PATH
     sample_path = const.SAMPLE_TRAIN_PATH
