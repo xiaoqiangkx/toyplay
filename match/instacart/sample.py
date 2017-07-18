@@ -13,6 +13,7 @@
 import pandas as pd
 import const
 import random
+from utils import dec_timer
 
 random.seed(const.RANDOM_STATE)
 
@@ -34,15 +35,29 @@ def sample_train(from_path, sample_path, key, percentage=0.1):
             sample_index_flag[idx] = False
 
     sample_df = from_df[sample_index_flag]
-    sample_df.to_csv(sample_path)
+    sample_df.to_csv(sample_path, index=False)
     return
 
 
-def read_sample_train(from_path):
-    return pd.read_csv(from_path)
+@dec_timer
+def extend_data(path_a, path_b, save_path, key):
+    a_df = pd.read_csv(path_a)
+    b_df = pd.read_csv(path_b)
+    target_df = pd.merge(a_df, b_df, on=key)
+    target_df.to_csv(save_path, index=False)
+    return
+
+
+def read_sample_train(from_path, nrows=None):
+    return pd.read_csv(from_path, nrows=nrows)
 
 
 if __name__ == '__main__':
-    raw_train_orders_path = const.TRAIN_ORDERS_PATH
+    extend_data(const.PRIOR_ORDERS_PATH, const.ORDERS_PATH, const.EXTEND_PRIOR_PATH, const.OID)
+    extend_data(const.TRAIN_ORDERS_PATH, const.ORDERS_PATH, const.EXTEND_TRAIN_PATH, const.OID)
+
+    raw_train_orders_path = const.EXTEND_TRAIN_PATH
     sample_path = const.SAMPLE_TRAIN_PATH
-    sample_train(raw_train_orders_path, sample_path, "order_id", percentage=0.1)
+    sample_train(raw_train_orders_path, sample_path, const.OID, percentage=0.1)
+
+
