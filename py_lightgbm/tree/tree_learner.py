@@ -30,7 +30,6 @@ class TreeLearner(object):
     def __init__(self, tree_config, train_data):
         self._gradients = None
         self._hessians = None
-        self._tree_config = None        # TODO: 用于管理tree config文件
         self._histogram_pool = None
         self._train_data = train_data
         self._max_cache_size = None

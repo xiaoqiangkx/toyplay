@@ -13,7 +13,7 @@
 import logging
 
 
-LOG_LEVEL = logging.CRITICAL
+LOG_LEVEL = logging.INFO
 logging.basicConfig()
 
 

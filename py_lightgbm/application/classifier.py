@@ -41,7 +41,7 @@ class LGBMClassifier(object):
         self._tree_config.num_leaves = num_leaves
         self._tree_config.max_depth = max_depth
 
-        self._min_child_samples = min_child_samples
+        self._tree_config.min_child_samples = min_child_samples
         self._tree_config.min_split_gain = min_split_gain
 
         self._tree_config.reg_alpha = reg_alpha

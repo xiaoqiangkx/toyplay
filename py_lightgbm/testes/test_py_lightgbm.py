@@ -25,7 +25,7 @@ _LOGGER = logger.get_logger("Test")
 
 
 def main():
-    mnist_train = pd.read_csv(DATA_PATH, nrows=1000)            # train data with 1000 rows, it cost 6ms
+    mnist_train = pd.read_csv(DATA_PATH, nrows=1000)            # train data with 1000 rows, it cost 1.6s, all data will cost 70s
     X = mnist_train[(mnist_train.label == 6) | (mnist_train.label == 8)]
     y = X['label'].values
     X = X.drop('label', axis=1).values
@@ -40,8 +40,8 @@ def main():
         'learning_rate': 0.1,
         'reg_lambda': 1.0,
         'reg_alpha': 1.0,
-        'n_estimators': 1,
-        # 'min_child_samples': 10,
+        'n_estimators': 2,
+        'min_child_samples': 20,
         # 'silent': True
     }
 
