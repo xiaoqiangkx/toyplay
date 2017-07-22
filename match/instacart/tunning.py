@@ -146,7 +146,7 @@ if __name__ == '__main__':
     sample_negative_data = get_sample_negative_data(negative_data, target_num / float(num_negative))
     train_data = pd.concat([sample_negative_data, positive_data])
 
-    drop_list = ['order_id', 'product_id', 'reordered', 'add_to_cart_order', 'user_id', 'eval_set', 'order_number']
+    drop_list = ['order_id', 'product_id', 'reordered', 'add_to_cart_order', 'user_id', 'eval_set', 'order_number', 'P']
     train_data.drop(drop_list, axis=1, inplace=True)
     train_validate_data = n_test.drop(drop_list, axis=1)
 

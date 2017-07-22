@@ -41,7 +41,13 @@ def diff(df):
 @dec_timer
 def build_field_feature(prior, group_id):
     # TODO: order_dow, order_hour_of_day如何处理??
-    field_key = {const.PID: "product", const.UID: "user"}[group_id]
+    field_key = {
+        const.PID: "product",
+        const.UID: "user",
+        const.AID: "aisle",
+        const.DID: "departments"
+    }[group_id]
+
     df = prior.groupby(group_id).agg({
         const.UID: {"%s_bought_time" % field_key: np.size},
         const.PID: {"%s_item_unique_number" % field_key: pd.Series.nunique},
@@ -66,11 +72,13 @@ def build_field_feature(prior, group_id):
 
 
 @dec_timer
-def  build_interactive_feature(prior_data, key_1, key_2):
+def build_interactive_feature(prior_data, key_1, key_2):
 
     group_id = [key_1, key_2]
     field_key = {
         (const.UID, const.PID): "user_product",
+        (const.UID, const.AID): "user_aisle",
+        (const.UID, const.DID): "user_department"
     }[(key_1, key_2)]
 
     df = prior_data.groupby(group_id).agg({
@@ -116,6 +124,11 @@ def feature_creation(df):
     df = df.merge(product_feature, how='left', on=[const.PID])
 
     # 1.3 order 包括df中order_dow, order_hour_of_day等字段, 已包含
+    aisle_feature = build_field_feature(prior_data, const.AID)
+    df = df.merge(aisle_feature, how='left', on=[const.AID])
+
+    department_feature = build_field_feature(prior_data, const.DID)
+    df = df.merge(department_feature, how='left', on=[const.DID])
 
     # ------------ 2. interactive feature -----------------
     # 2.1 user-product feature
@@ -126,8 +139,18 @@ def feature_creation(df):
     df = df.merge(user_product_feature, how='left', on=[const.UID, const.PID])
 
     # 2.2 user-order feature
+    user_aisle_feature = build_interactive_feature(prior_data, const.UID, const.AID)
+    user_aisle_feature.set_index([const.UID, const.AID])
+    df.set_index([const.UID, const.AID])
+
+    df = df.merge(user_aisle_feature, how='left', on=[const.UID, const.AID])
 
     # 2.3 product-order feature
+    user_department_feature = build_interactive_feature(prior_data, const.UID, const.DID)
+    user_department_feature.set_index([const.UID, const.DID])
+    df.set_index([const.UID, const.DID])
+
+    df = df.merge(user_department_feature, how='left', on=[const.UID, const.DID])
 
     # ------------ 3. experience feature ------------------
 

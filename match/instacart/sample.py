@@ -41,11 +41,14 @@ def sample_train(from_path, sample_path, key, percentage=0.1):
 
 
 @dec_timer
-def extend_data(path_a, path_b, save_path, key):
+def extend_data(path_a, save_path, path_b_list, key_list):
     a_df = pd.read_csv(path_a)
-    b_df = pd.read_csv(path_b)
-    target_df = pd.merge(a_df, b_df, on=key, how='left')
-    target_df.to_csv(save_path, index=False)
+    for idx, path_b in enumerate(path_b_list):
+        key = key_list[idx]
+
+        b_df = pd.read_csv(path_b)
+        a_df = pd.merge(a_df, b_df, on=key, how='left')
+    a_df.to_csv(save_path, index=False)
     return
 
 
@@ -87,10 +90,10 @@ def make_user_product_list():
         order_id, user_id = order_user_id
         for product_id in product_list:
             output_data[cnt, 0] = order_id
-            output_data[cnt, 2] = product_id
+            output_data[cnt, 1] = product_id
             cnt += 1
 
-    new_dataframe = pd.DataFrame(output_data, columns=[const.OID, const.UID, const.PID], dtype="int")
+    new_dataframe = pd.DataFrame(output_data, columns=[const.OID, const.PID], dtype="int")
     new_dataframe.to_csv(const.NEGATIVE_TRAIN_DATA, index=False)
     return
 
@@ -106,12 +109,13 @@ def merge_train_negative_data(train_path, negative_path, total_train):
 
 
 if __name__ == '__main__':
-    # extend_data(const.PRIOR_ORDERS_PATH, const.ORDERS_PATH, const.EXTEND_PRIOR_PATH, const.OID)
-    # extend_data(const.TRAIN_ORDERS_PATH, const.ORDERS_PATH, const.EXTEND_TRAIN_PATH, const.OID)
+    # extend_data(const.PRIOR_ORDERS_PATH, const.EXTEND_PRIOR_PATH, [const.ORDERS_PATH, const.PRODUCTS_PATH], [const.OID, const.PID])
+    # extend_data(const.TRAIN_ORDERS_PATH, const.EXTEND_TRAIN_PATH, [const.ORDERS_PATH, const.PRODUCTS_PATH], [const.OID, const.PID])
+
     #
     # # 构造用户过去购买过的所有物品,构造反例数据,生成sample_train_failure_path
     # make_user_product_list()
-    # extend_data(const.NEGATIVE_TRAIN_DATA, const.ORDERS_PATH, const.EXTEND_NEGATIVE_TRAIN_PATH, [const.OID, const.UID])
+    # extend_data(const.NEGATIVE_TRAIN_DATA, const.EXTEND_NEGATIVE_TRAIN_PATH, [const.ORDERS_PATH, const.PRODUCTS_PATH], [const.OID, const.PID])
 
     # merge train and negative data
     # merge_train_negative_data(const.EXTEND_TRAIN_PATH, const.EXTEND_NEGATIVE_TRAIN_PATH, const.TOTAL_TRAIN_DATA)
