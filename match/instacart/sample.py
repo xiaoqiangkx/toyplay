@@ -27,7 +27,7 @@ def sample_train(from_path, sample_path, key, percentage=0.1):
     order_id_list = list(from_df[key].value_counts().index)
     sample_order_id_set = set(random.sample(order_id_list, int(len(order_id_list) * percentage)))
 
-    order_id_data_list = from_df['order_id'].values
+    order_id_data_list = from_df[key].values
     sample_index_flag = range(from_df.shape[0])
     for idx, value in enumerate(order_id_data_list):
         if value in sample_order_id_set:
@@ -113,9 +113,9 @@ if __name__ == '__main__':
     # make_user_product_list()
     # extend_data(const.NEGATIVE_TRAIN_DATA, const.ORDERS_PATH, const.EXTEND_NEGATIVE_TRAIN_PATH, [const.OID, const.UID])
 
-    # raw_train_orders_path = const.EXTEND_TRAIN_PATH
-    # sample_path = const.SAMPLE_TRAIN_PATH
-    # sample_train(raw_train_orders_path, sample_path, const.OID, percentage=0.1)
-
     # merge train and negative data
-    merge_train_negative_data(const.EXTEND_TRAIN_PATH, const.EXTEND_NEGATIVE_TRAIN_PATH, const.TOTAL_TRAIN_DATA)
+    # merge_train_negative_data(const.EXTEND_TRAIN_PATH, const.EXTEND_NEGATIVE_TRAIN_PATH, const.TOTAL_TRAIN_DATA)
+
+    raw_train_orders_path = const.TOTAL_TRAIN_DATA
+    sample_path = const.SAMPLE_TRAIN_PATH
+    sample_train(raw_train_orders_path, sample_path, const.OID, percentage=0.1)

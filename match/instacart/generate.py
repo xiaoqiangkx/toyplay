@@ -66,7 +66,7 @@ def build_field_feature(prior, group_id):
 
 
 @dec_timer
-def build_interactive_feature(prior_data, key_1, key_2):
+def  build_interactive_feature(prior_data, key_1, key_2):
 
     group_id = [key_1, key_2]
     field_key = {
@@ -122,6 +122,7 @@ def feature_creation(df):
     user_product_feature = build_interactive_feature(prior_data, const.UID, const.PID)
     user_product_feature.set_index([const.UID, const.PID])
     df.set_index([const.UID, const.PID])
+
     df = df.merge(user_product_feature, how='left', on=[const.UID, const.PID])
 
     # 2.2 user-order feature
@@ -146,5 +147,6 @@ def feature_creation(df):
 
 if __name__ == '__main__':
     raw_train_df = sample.read_sample_train(const.SAMPLE_TRAIN_PATH)
+    raw_train_df.set_index([const.OID, const.UID, const.PID])
     train_feature_df = feature_creation(raw_train_df)
     train_feature_df.to_csv(const.SAMPLE_TRAIN_FC_PATH, index=False)
