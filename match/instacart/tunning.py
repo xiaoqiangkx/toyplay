@@ -12,6 +12,8 @@
 2.2017/7/18 22:11 使用LightGBM的坐标下降法来进行调参
 """
 import lightgbm as lgb
+import pandas as pd
+import const
 
 
 def create_model(train_df, train_labels, validate_df, validate_labels):
@@ -43,6 +45,12 @@ def create_model(train_df, train_labels, validate_df, validate_labels):
     return result
 
 if __name__ == '__main__':
+    sample_train_fc = pd.read_csv(const.SAMPLE_TRAIN_FC_PATH)
+    sample_train_fc.drop(
+        ['order_id', 'product_id', 'reordered', 'add_to_cart_order', 'user_id', 'eval_set', 'order_number'], axis=1,
+        inplace=True)
+    num_data = sample_train_fc.shape[0]
+
     train_df = None
     validate_df = None
     train_labels = None

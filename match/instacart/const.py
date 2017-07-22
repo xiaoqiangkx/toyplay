@@ -16,6 +16,11 @@ RANDOM_STATE = 42
 SAMPLE_TRAIN_PATH = "data/sample_train.csv"
 EXTEND_PRIOR_PATH = "data/extend_prior_order.csv"
 EXTEND_TRAIN_PATH = "data/extend_train_order.csv"
+EXTEND_NEGATIVE_TRAIN_PATH = "data/extend_negative_train.csv"
+
+NEGATIVE_TRAIN_DATA = "data/negative_train.csv"
+TOTAL_TRAIN_DATA = "data/total_train.csv"
+
 
 TRAIN_ORDERS_PATH = "../../data/instacart/order_products__train.csv"
 AISLES_PATH = "../../data/instacart/aisles.csv"
@@ -39,4 +44,4 @@ REORDER = "reordered"
 ORDER_DOW = "order_dow"
 ORDER_HOUR_OF_DAY = "order_hour_of_day"
 DAYS_SINCE_PRIOR_ORDER = "days_since_prior_order"
-
+LABEL = "labels"
